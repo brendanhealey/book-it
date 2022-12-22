@@ -1,0 +1,30 @@
+- create vite react typescript app:
+
+- vite
+
+  debug mode: edit mui-theming/package.json script dev to add vite -d -l info
+
+  yarn create vite my-app --template react-ts
+
+- various useful docker commands
+
+  dockerd --register-service
+  docker run hello-world
+  docker build . -t mui-theming
+  docker run -p 3000:3000 -d mui-theming
+  docker ps --all
+  docker container ls -a
+  docker system prune
+  docker logs b75efbbda196 (container id from docker ps -a)
+
+  - netstat -aonp
+
+  - Update windows linux distribution from Windows Bash (running as admin):
+    
+    sudo apt update && sudo apt upgrade
+
+  - tsconfig.base.json is hardlinked in mui-theming & component-lib
+
+    ln ../../tsconfig.base.json . (do this from both the above folders)
+
+  - 

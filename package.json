@@ -1,0 +1,21 @@
+{
+  "name": "bookit",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "main": "index.js",
+  "author": "Brendan Healey <healey_brendan@yahoo.co.uk>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "cd packages/mui-theming && vite",
+    "build": "cd packages/mui-theming && tsc && vite build",
+    "sb": "cd packages/component-lib && start-storybook -p 6006",
+    "sb:publish": "cd packages/component-lib && npx chromatic --project-token=26964bd6cfee"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

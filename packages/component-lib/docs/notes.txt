@@ -1,0 +1,3 @@
+- npm init vite@latest react-vite-library -- --template react-ts
+
+- 

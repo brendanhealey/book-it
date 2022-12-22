@@ -1,0 +1,49 @@
+{
+  "name": "component-lib",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./dist/component-lib.js",
+  "module": "./dist/component-lib.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/component-lib.js",
+      "import": "./dist/component-lib.mjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc && vite build",
+    "build:watch": "export CHOKIDAR_USEPOLLING=true && tsc && vite build --watch",
+    "build-storybook": "build-storybook",
+    "sb": "export NODE_OPTIONS=--openssl-legacy-provider && start-storybook -p 6006",
+    "sb:build": "export NODE_OPTIONS=--openssl-legacy-provider && build-storybook",
+    "sb:server": "export http-server ./storybook-static",
+    "sb:publish": "export NODE_OPTIONS=--openssl-legacy-provider && npx chromatic --project-token=26964bd6cfee"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.5",
+    "@storybook/addon-actions": "^6.5.14",
+    "@storybook/addon-essentials": "^6.5.14",
+    "@storybook/addon-interactions": "^6.5.14",
+    "@storybook/addon-links": "^6.5.14",
+    "@storybook/builder-webpack4": "^6.5.14",
+    "@storybook/manager-webpack4": "^6.5.14",
+    "@storybook/react": "^6.5.14",
+    "@storybook/testing-library": "^0.0.13",
+    "@types/jest": "^29.2.4",
+    "@types/node": "^18.11.17",
+    "babel-loader": "^9.1.0",
+    "chromatic": "^6.13.1",
+    "vite-plugin-aliases": "^0.0.1",
+    "vite-plugin-dts": "^1.7.1"
+  },
+  "dependencies": {}
+}
