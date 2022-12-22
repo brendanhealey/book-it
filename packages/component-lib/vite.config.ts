@@ -1,17 +1,30 @@
+import react from "@vitejs/plugin-react";
+import * as path from "path";
 import { resolve } from "path";
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
-import * as path from "path";
+import packageJson from "./package.json";
+
+const getPackageName = () => {
+  return packageJson.name;
+};
+
+const getPackageNameCamelCase = () => {
+  try {
+    return getPackageName().replace(/-./g, (char) => char[1].toUpperCase());
+  } catch (err) {
+    throw new Error("Name property in package.json is missing.");
+  }
+};
 
 export default defineConfig({
   plugins: [react(), dts()],
   build: {
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
-      name: "ComponentLibrary",
-      formats: ["es", "cjs"],
-      fileName: "component-lib",
+      name: `${getPackageNameCamelCase()}`,
+      formats: ["es", "cjs", "iife"],
+      fileName: `${getPackageName()}`,
     },
     rollupOptions: {
       watch: {

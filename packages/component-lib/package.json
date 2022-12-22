@@ -16,8 +16,8 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "tsc && vite build",
-    "build:watch": "export CHOKIDAR_USEPOLLING=true && tsc && vite build --watch",
+    "build:nowatch": "tsc && vite build",
+    "build": "export CHOKIDAR_USEPOLLING=true && tsc && vite build --watch",
     "build-storybook": "build-storybook",
     "sb": "export NODE_OPTIONS=--openssl-legacy-provider && start-storybook -p 6006",
     "sb:build": "export NODE_OPTIONS=--openssl-legacy-provider && build-storybook",
