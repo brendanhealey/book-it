@@ -22,7 +22,7 @@
     "sb": "export NODE_OPTIONS=--openssl-legacy-provider && start-storybook -p 6006",
     "sb:build": "export NODE_OPTIONS=--openssl-legacy-provider && build-storybook",
     "sb:server": "export http-server ./storybook-static",
-    "sb:publish": "export NODE_OPTIONS=--openssl-legacy-provider && npx chromatic --project-token=26964bd6cfee"
+    "sb:publish": "export NODE_OPTIONS=--openssl-legacy-provider && npx chromatic --exit-zero-on-changes"
   },
   "peerDependencies": {
     "react": "^18.2.0",
@@ -45,5 +45,7 @@
     "vite-plugin-aliases": "^0.0.1",
     "vite-plugin-dts": "^1.7.1"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "readme": "ERROR: No README data found!",
+  "_id": "component-lib@1.0.0"
 }
