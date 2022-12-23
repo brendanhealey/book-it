@@ -1,21 +1,65 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
+  "parser": "@typescript-eslint/parser",
+  // "env": {
+  //   "node": true,
+  //   "es6": true
+  // },
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "standard",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:workspaces/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  // "plugins": ["react", "workspaces", "import"],
+  // "plugins": ["react"],
+  "parserOptions": {
+    "plugins": ["react", "react-hooks", "workspaces"],
+    // "parser": "@typescript/eslint-parser",
+    // "project": ["./.eslintrc.json"],
+    "ecmaVersion": 2022,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+      // "modules": true
     },
-    "extends": [
-        "plugin:react/recommended",
-        "standard-with-typescript"
-    ],
-    "overrides": [
-    ],
-    "parserOptions": {
-        "ecmaVersion": "latest",
-        "sourceType": "module"
+    // "babelOptions": {
+    //   "presets": ["@typescript/preset-react"]
+    // },
+    "rootMode": "upward",
+    "requireConfigFile": false
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
     },
-    "plugins": [
-        "react"
-    ],
-    "rules": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".ts", ".tsx"]
+      },
+      "typescript": {
+        // use an array
+        "project": ["packages/*/tsconfig.json"]
+      }
     }
+  },
+  "rules": {
+    "import/prefer-default-export": "off",
+    "no-console": ["error", { "allow": ["warn", "error"] }],
+    "no-extra-parens": ["error"],
+    "no-shadow": "error",
+    "no-undef": "off",
+    "no-unused-vars": "error",
+    "object-curly-newline": "off",
+    "prefer-const": "error",
+    "react-hooks/rules-of-hooks": "off",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-uses-react": 2,
+    "react/jsx-uses-vars": 2,
+    "react/react-in-jsx-scope": 2,
+    "strict": [2, "never"]
+  }
 }
