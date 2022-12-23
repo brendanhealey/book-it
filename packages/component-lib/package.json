@@ -16,8 +16,9 @@
   ],
   "license": "MIT",
   "scripts": {
+    "ttt": "tsc -v",
     "build:nowatch": "tsc && vite build",
-    "build": "export CHOKIDAR_USEPOLLING=true && tsc && vite build --watch",
+    "build": "CHOKIDAR_USEPOLLING=true && tsc && vite build --watch",
     "build-storybook": "export NODE_OPTIONS=--openssl-legacy-provider && build-storybook",
     "sb": "export NODE_OPTIONS=--openssl-legacy-provider && start-storybook -p 6006",
     "sb:build": "export NODE_OPTIONS=--openssl-legacy-provider && build-storybook",
@@ -38,14 +39,12 @@
     "@storybook/manager-webpack4": "^6.5.14",
     "@storybook/react": "^6.5.14",
     "@storybook/testing-library": "^0.0.13",
-    "@types/jest": "^29.2.4",
-    "@types/node": "^18.11.17",
     "babel-loader": "^9.1.0",
     "chromatic": "^6.13.1",
+    "vite": "^4.0.3",
     "vite-plugin-aliases": "^0.0.1",
     "vite-plugin-dts": "^1.7.1"
   },
-  "dependencies": {},
   "readme": "ERROR: No README data found!",
   "_id": "component-lib@1.0.0"
 }
