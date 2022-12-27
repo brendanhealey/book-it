@@ -1,0 +1,30 @@
+{
+  "extends": [
+    ".eslintrc.base.json",
+    "plugin:react/all",
+    "plugin:react/jsx-runtime",
+    "plugin:react-hooks/recommended"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "react-hooks/rules-of-hooks": "warn",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-uses-vars": 2,
+    "react/button-has-type": "warn",
+    "react/prop-types": "warn",
+    "react/require-default-props": "warn",
+    "react/no-array-index-key": "warn",
+    "react/react-in-jsx-scope": "warn",
+    "react/jsx-uses-react": "warn",
+    "react/display-name": "warn",
+    "react/no-danger-with-children": "warn",
+    "react/jsx-no-bind": "warn",
+    "react/function-component-definition": "off",
+    "react/jsx-filename-extension": "off",
+    "react/jsx-one-expression-per-line": "off"
+  }
+}
