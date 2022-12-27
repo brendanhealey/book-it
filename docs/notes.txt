@@ -1,5 +1,15 @@
 - npx npm-check-updates -u to update package.json dependencies to latest version.
+  Can just use yarn upgrade...
 
 - yarn workspace component-lib add dependency
+
+- npx install-peerdeps --dev eslint-config-airbnb
+
+- Yelp API details:
+
+  Login link: https://dash.readme.com/sign/yelp-developers/healey_brendan@yahoo.co.uk/57e9c2d9f847a0abe5b9633e160e7097a34d6fb34281631d?redirect=/graphql
+  Client ID: YfWZd6jgjCaD8Jy__2wESA
+  API Key: Zxf8F1_8SAlrE8FQSMNpo9cvzySV3OG9pziRzTERkZGtNb4Eq_1f43Zi5tgDcAkIAjvcBli19UAgrEUX-OiXZWoquli6_Axx8R4hahkjf9n_tTuNHySpo2wmcXapY3Yx
+  https://yelp.com/developers/graphiql
 
 - 
