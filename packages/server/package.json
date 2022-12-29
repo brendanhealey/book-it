@@ -12,8 +12,8 @@
     "start": "yarn compile && node ./dist/local.js",
     "sl": "sls invoke local -f graphql",
     "so": "sls offline",
-    "sd": "echo 'This is really slow - 10m+' && sls deploy --verbose",
-    "sdf": "echo 'This is really slow - 10m+' && sls deploy function -f graphql --verbose"
+    "sd": "echo 'This is really slow - 10m+' && sls deploy --verbose --aws-s3-accelerate",
+    "sdf": "echo 'This is really slow - 10m+' && sls deploy --verbose function -f graphql"
   },
   "dependencies": {
     "@apollo/server": "^4.3.0",
@@ -29,7 +29,6 @@
     "serverless": "^3.0.0",
     "serverless-esbuild": "^1.23.3",
     "serverless-offline": "^12.0.3",
-    "serverless-plugin-typescript": "^2.1.4",
     "ts-node": "^10.4.0",
     "tsconfig-paths": "^3.9.0",
     "typescript": "^4.1.3"

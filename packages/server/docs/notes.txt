@@ -8,7 +8,11 @@
   sls deploy --verbose --region eu-west-2
   aws cloudformation delete-stack --stack-name
   sls deploy list
-  sla logs -f graphql -t
-  
 
 - npx diagnose-endpoint@1.1.0 --endpoint=https://https://c9jgq1g7la.execute-api.eu-west-2.amazonaws.com
+
+- Serverless S3 bucker 29/12/2022 09:51
+
+  apollo-lambda-dev-serverlessdeploymentbucket-1iucd6jgrtsdq.s3-accelerate.amazonaws.com
+
+- 

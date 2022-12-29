@@ -9,9 +9,6 @@ package:
   excludeDevDependencies: true
 functions:
   graphql:
-    # Make sure your file path is correct!
-    # (e.g., if your file is in the root folder use server.graphqlHandler )
-    # The format is: <FILENAME>.<HANDLER>
     handler: src/index.graphqlHandler
     events:
       - httpApi:
@@ -21,5 +18,8 @@ functions:
           path: /
           method: GET
 plugins:
-  - serverless-plugin-typescript
+  - serverless-esbuild
   - serverless-offline
+custom:
+  esbuild:
+    packager: yarn
