@@ -1,0 +1,14 @@
+- IAM user
+
+  user: book-it
+  access key: AKIAX7O43MWWMZKIKH6A 
+  secret key: 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
+
+- sls invoke local -f graphql -p query.json
+  sls deploy --verbose --region eu-west-2
+  aws cloudformation delete-stack --stack-name
+  sls deploy list
+  sla logs -f graphql -t
+  
+
+- npx diagnose-endpoint@1.1.0 --endpoint=https://https://c9jgq1g7la.execute-api.eu-west-2.amazonaws.com

@@ -1,12 +1,29 @@
 {
+  "extends": "./tsconfig.paths.json",
   "compilerOptions": {
-    "rootDirs": ["src"],
-    "outDir": "dist",
-    "lib": ["es2020"],
-    "target": "es2020",
-    "module": "esnext",
+    "lib": ["dom", "ESNext"],
     "moduleResolution": "node",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "removeComments": true,
+    "sourceMap": true,
+    "target": "ESNext",
+    "outDir": "dist",
+    "skipLibCheck": true,
+    "rootDirs": ["src"],
+    "module": "ESNext",
     "esModuleInterop": true,
     "types": ["node"]
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": [
+    "node_modules/**/*",
+    ".serverless/**/*",
+    ".webpack/**/*",
+    "_warmup/**/*",
+    ".vscode/**/*"
+  ],
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
   }
 }

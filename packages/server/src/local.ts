@@ -1,6 +1,5 @@
 import { ApolloServer } from "@apollo/server";
-// import { startStandaloneServer } from "@apollo/server/standalone";
-import { startServerAndCreateLambdaHandler } from "@as-integrations/aws-lambda";
+import { startStandaloneServer } from "@apollo/server/standalone";
 
 const typeDefs = `#graphql
   type Book {
@@ -15,7 +14,7 @@ const typeDefs = `#graphql
 
 const books = [
   {
-    title: "The Awakening 3",
+    title: "The Awakening 2",
     author: "Kate Chopin",
   },
   {
@@ -35,9 +34,7 @@ const server = new ApolloServer({
   resolvers,
 });
 
-// const { url } = await startStandaloneServer(server, {
-//   listen: { port: 4000 },
-// });
-// console.log(`🚀  Server ready at: ${url}`);
-
-export const graphqlHandler = startServerAndCreateLambdaHandler(server);
+const { url } = await startStandaloneServer(server, {
+  listen: { port: 4000 },
+});
+console.log(`🚀  Server ready at: ${url}`);

@@ -1,0 +1,20 @@
+# package directories
+node_modules
+jspm_packages
+dist
+
+# Serverless directories
+.serverless
+.build
+
+# esbuild directories
+.esbuild
+
+# yarn v3
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
