@@ -8,8 +8,8 @@ import {
 import { Text, Text2 } from "component-lib";
 import { ColorContext } from "./ColourContext";
 import { SwitchModeButton } from "./components/SwitchModeButton";
-import { darkTheme } from "./themes/dark";
-import { lightTheme } from "./themes/light";
+import { lightTheme } from "themes/light";
+import { darkTheme } from "themes/dark";
 
 function App() {
   const [mode, setMode] = React.useState<PaletteMode>("light");

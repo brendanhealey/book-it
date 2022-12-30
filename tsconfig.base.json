@@ -13,6 +13,12 @@
     "strict": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "paths": {
+      // paths are relative to location of extend'ing tsconfig + baseUrl !!
+      "component-lib": ["../../component-lib/src"],
+      "react-client": ["../../react-client/src"],
+      "server": ["../../server/src"]
+    }
   }
 }

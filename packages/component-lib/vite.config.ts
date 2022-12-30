@@ -1,7 +1,6 @@
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
-import * as path from 'path';
 import { resolve } from 'path';
 import packageJson from './package.json';
 
@@ -38,11 +37,6 @@ export default defineConfig({
           'react-dom': 'ReactDOM',
         },
       },
-    },
-  },
-  resolve: {
-    alias: {
-      'my-placeholder': path.join(__dirname, './src'),
     },
   },
 });

@@ -2,7 +2,7 @@
 
 - vite
 
-  debug mode: edit mui-theming/package.json script dev to add vite -d -l info
+  debug mode: edit react-client/package.json script dev to add vite -d -l info
 
   yarn create vite my-app --template react-ts
 
@@ -10,8 +10,8 @@
 
   dockerd --register-service
   docker run hello-world
-  docker build . -t mui-theming
-  docker run -p 3000:3000 -d mui-theming
+  docker build . -t react-client
+  docker run -p 3000:3000 -d react-client
   docker ps --all
   docker container ls -a
   docker system prune
@@ -23,7 +23,7 @@
     
     sudo apt update && sudo apt upgrade
 
-  - tsconfig.base.json is hardlinked in mui-theming & component-lib
+  - tsconfig.base.json is hardlinked in react-client & component-lib
 
     ln ../../tsconfig.base.json . (do this from both the above folders)
 
