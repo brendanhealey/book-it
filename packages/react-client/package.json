@@ -10,17 +10,21 @@
     "preview": "vite preview",
     "server": "serve -s dist"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.0",
-    "component-lib": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
+  "dependencies": {
+    "component-lib": "workspace:*"
+  },
   "devDependencies": {
     "eslint": "^8.30.0",
+    "jest": "^29.3.1",
+    "prettier": "^2.8.1",
     "vite": "^4.0.3"
   }
 }

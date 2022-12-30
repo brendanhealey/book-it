@@ -6,8 +6,8 @@ import {
   ThemeProvider,
 } from "@mui/material";
 import { Text, Text2 } from "component-lib";
-import { ColorContext } from "./ColourContext";
-import { SwitchModeButton } from "./components/SwitchModeButton";
+import { ColorContext } from "ColourContext";
+import { SwitchModeButton } from "components/SwitchModeButton";
 import { lightTheme } from "themes/light";
 import { darkTheme } from "themes/dark";
 
