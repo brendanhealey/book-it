@@ -12,4 +12,4 @@
   API Key: Zxf8F1_8SAlrE8FQSMNpo9cvzySV3OG9pziRzTERkZGtNb4Eq_1f43Zi5tgDcAkIAjvcBli19UAgrEUX-OiXZWoquli6_Axx8R4hahkjf9n_tTuNHySpo2wmcXapY3Yx
   https://yelp.com/developers/graphiql
 
-- 
+- yarn dlx @yarnpkg/sdks vscode

@@ -3,7 +3,8 @@
   "compilerOptions": {
     "baseUrl": "src",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "composite": true
   },
   "include": ["src", "stories"],
   "exclude": ["node_modules"]
