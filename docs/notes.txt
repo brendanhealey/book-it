@@ -13,3 +13,9 @@
   https://yelp.com/developers/graphiql
 
 - yarn dlx @yarnpkg/sdks vscode
+
+- npx sb upgrade (--prerelease)
+
+- yarn dlx sb@next info
+
+- 

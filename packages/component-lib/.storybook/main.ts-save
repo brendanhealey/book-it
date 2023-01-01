@@ -1,0 +1,7 @@
+import type { ViteFinal } from '@storybook/builder-vite';
+export const viteFinal: ViteFinal = async (config, options) => {
+  return config;
+};
+export const docs = {
+  autodocs: true,
+};

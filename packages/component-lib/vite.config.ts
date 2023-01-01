@@ -16,7 +16,15 @@ const getPackageNameCamelCase = () => {
 };
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react({
+      // Exclude storybook stories
+      exclude: /fred\.fred/,
+      // exclude: /\.stories\.(t|j)sx?$/,
+      // Only .tsx files
+      include: '**/*.tsx',
+    }),
+  ],
   build: {
     emptyOutDir: false,
     lib: {
