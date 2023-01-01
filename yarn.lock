@@ -14764,6 +14764,8 @@ __metadata:
     "@mui/material": ^5.11.2
     "@mui/styles": ^5.11.2
     "@mui/types": ^7.2.3
+    "@types/react": ^18.0.26
+    "@types/react-dom": ^18.0.10
     "@vitejs/plugin-react": ^3.0.0
     component-lib: "workspace:*"
     eslint: ^8.30.0
