@@ -20,6 +20,18 @@ functions:
 plugins:
   - serverless-esbuild
   - serverless-offline
-custom:
-  esbuild:
-    packager: yarn
+# custom:
+#   esbuild:
+#     packager: yarn
+#     external:
+#       - "@apollo/server"
+#       - "@as-integrations/aws-lambda"
+#       - "graphql"
+#     bundle: true
+#     minify: false
+#     sourcemap: true
+#     exclude: ["aws-sdk"]
+#     target: "node18"
+#     define: { "require.resolve": undefined }
+#     platform: "neutral"
+#     concurrency: 10

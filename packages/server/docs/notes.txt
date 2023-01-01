@@ -11,8 +11,17 @@
 
 - npx diagnose-endpoint@1.1.0 --endpoint=https://https://c9jgq1g7la.execute-api.eu-west-2.amazonaws.com
 
-- Serverless S3 bucker 29/12/2022 09:51
+- Serverless S3 bucket 29/12/2022 09:51
 
   apollo-lambda-dev-serverlessdeploymentbucket-1iucd6jgrtsdq.s3-accelerate.amazonaws.com
+
+- "installConfig": {
+    "hoistingLimits": "workspaces"
+  },
+
+- serverless-analyze-bundle-plugin
+
+- The server folder is now NOT part of the workspace because serverless-esbuild doesn't
+  support yarn v2/3 pnp
 
 - 

@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/component-lib",
+    "packages/react-client"
   ],
   "main": "index.js",
   "author": "Brendan Healey <healey_brendan@yahoo.co.uk>",
