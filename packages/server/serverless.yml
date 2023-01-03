@@ -18,8 +18,11 @@ functions:
           path: /
           method: GET
 plugins:
-  - serverless-esbuild
   - serverless-offline
+  - serverless-esbuild
+custom:
+  serverless-offline:
+    reloadHandler: true
 # custom:
 #   esbuild:
 #     packager: yarn

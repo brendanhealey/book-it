@@ -14,7 +14,7 @@ const typeDefs = `#graphql
 
 const books = [
   {
-    title: "The Awakening 3",
+    title: "The Awakening 6",
     author: "Kate Chopin",
   },
   {

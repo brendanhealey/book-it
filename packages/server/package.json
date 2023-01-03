@@ -3,15 +3,23 @@
   "version": "1.0.0",
   "private": true,
   "main": "index.js",
-  "type": "module",
+  "//a": [
+    "This is an example of how to",
+    "do comments in package.json"
+  ],
+  "//b": [
+    "This is an example of how to",
+    "do comments in package.json"
+  ],
   "scripts": {
     "compile": "tsc",
     "start": "yarn compile && node ./dist/local.js",
     "sl": "sls invoke local -f graphql",
-    "so": "sls offline",
-    "sd": "YARN_RC_FILENAME=./yarnrc.yml && echo 'This is really slow - ~2m' && sls deploy --verbose --aws-s3-accelerate",
-    "sdd": "YARN_RC_FILENAME=./yarnrc.yml && echo 'This is really slow - ~2m' && sls deploy --debug \\* --verbose --aws-s3-accelerate",
-    "sdf": "echo 'This is really slow - ~2m' && sls deploy --verbose function -f graphql"
+    "so": "sls offline --reloadHandler",
+    "sd": "YARN_RC_FILENAME=./yarnrc.yml && echo 'This is quite slow - ~2m' && time sls deploy --verbose --aws-s3-accelerate",
+    "sdd": "YARN_RC_FILENAME=./yarnrc.yml && echo 'This is quite slow - ~2m' && time sls deploy --verbose --aws-s3-accelerate",
+    "sddebug": "YARN_RC_FILENAME=./yarnrc.yml && echo 'This is quite slow - ~2m' && time sls deploy --debug \\* --verbose --aws-s3-accelerate",
+    "sdf": "echo 'This is quite slow - ~1m' && time sls deploy --verbose function -f graphql"
   },
   "dependencies": {
     "@apollo/server": "^4.3.0",

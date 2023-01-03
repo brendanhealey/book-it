@@ -28,13 +28,15 @@
     "eslint:fix": "eslint \"src/**/*.{ts,tsx}\" --fix",
     "storybook": "start-storybook -p 6006"
   },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*"
+  },
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.11.0",
-    "@mui/material": "^5.11.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "@mui/material": "^5.11.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.7",

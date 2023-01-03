@@ -19,7 +19,6 @@ export default defineConfig({
   plugins: [
     react({
       // Exclude storybook stories
-      exclude: /fred\.fred/,
       // exclude: /\.stories\.(t|j)sx?$/,
       // Only .tsx files
       include: '**/*.tsx',
@@ -38,11 +37,12 @@ export default defineConfig({
         include: 'src/**',
       },
       // this significantly reduces the size of the .js & .mjs files created in dist
-      external: ['react', 'react-dom'],
+      external: ['react', 'react-dom', 'react/jsx-runtime'],
       output: {
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
+          'react/jsx-runtime': 'jsxRuntime',
         },
       },
     },

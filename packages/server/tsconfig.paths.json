@@ -1,9 +1,12 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "src",
     "paths": {
-      "@functions/*": ["src/functions/*"],
-      "@libs/*": ["src/libs/*"]
+      "@apollo/server": ["../node_modules/@apollo/server"],
+      "@as-integrations/aws-lambda": [
+        "../node_modules/@as-integrations/aws-lambda"
+      ],
+      "@apollo/server/standalone": ["../node_modules/@apollo/server/standalone"]
     }
   }
 }
