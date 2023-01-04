@@ -37,7 +37,19 @@ export default defineConfig({
         include: 'src/**',
       },
       // this significantly reduces the size of the .js & .mjs files created in dist
-      external: ['react', 'react-dom', 'react/jsx-runtime'],
+      external: [
+        'react',
+        'react-dom',
+        'react/jsx-runtime',
+        'prop-types',
+        '@emotion/react',
+        '@emotion/styled',
+        '@mui/lab',
+        '@mui/icons-material',
+        '@mui/material',
+        '@mui/material/styles',
+        '@mui/styles',
+      ],
       output: {
         globals: {
           react: 'React',

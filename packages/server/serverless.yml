@@ -1,12 +1,13 @@
 service: apollo-lambda
 provider:
   name: aws
-  runtime: nodejs16.x
+  runtime: nodejs18.x
   region: eu-west-2
   httpApi:
     cors: true
 package:
   excludeDevDependencies: true
+  # individually: true
 functions:
   graphql:
     handler: src/index.graphqlHandler
@@ -18,11 +19,18 @@ functions:
           path: /
           method: GET
 plugins:
-  - serverless-offline
   - serverless-esbuild
+  - serverless-offline
 custom:
   serverless-offline:
     reloadHandler: true
+  esbuild:
+    packager: yarn
+    target: "node18"
+    bundle: true
+    minify: false
+    watch:
+      pattern: ["./src/**/*.ts"]
 # custom:
 #   esbuild:
 #     packager: yarn

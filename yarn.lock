@@ -7444,11 +7444,7 @@ __metadata:
   dependencies:
     "@babel/core": ^7.20.7
     "@emotion/babel-plugin": ^11.10.5
-    "@emotion/react": ^11.10.5
-    "@emotion/styled": ^11.10.5
     "@mdx-js/react": ^1.6.22
-    "@mui/icons-material": ^5.11.0
-    "@mui/material": ^5.11.2
     "@mui/types": ^7.2.3
     "@storybook/addon-actions": ^6.5.15
     "@storybook/addon-backgrounds": ^6.5.15
@@ -7479,6 +7475,10 @@ __metadata:
     typescript: ^4.9.4
     vite: ^4.0.3
   peerDependencies:
+    "@emotion/react": "*"
+    "@emotion/styled": "*"
+    "@mui/icons-material": "*"
+    "@mui/material": "*"
     react: "*"
     react-dom: "*"
   languageName: unknown
