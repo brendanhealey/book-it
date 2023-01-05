@@ -12,7 +12,7 @@ const connection = mysql2.createConnection({
 
 const resolvers = {
   Query: {
-    users: async () => getQuery("SELECT * FROM `users`"),
+    users: () => getQuery("SELECT * FROM `users`"),
   },
 };
 
