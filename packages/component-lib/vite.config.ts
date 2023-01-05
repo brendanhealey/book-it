@@ -45,6 +45,7 @@ export default defineConfig({
         '@emotion/react',
         '@emotion/styled',
         '@mui/lab',
+        '@mui/joy',
         '@mui/icons-material',
         '@mui/material',
         '@mui/material/styles',

@@ -4,9 +4,6 @@
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "jsx": "react-jsx",
     "baseUrl": "src"
-    // "paths": {
-    //   "component-lib": ["../../component-lib/src"]
-    // }
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"],

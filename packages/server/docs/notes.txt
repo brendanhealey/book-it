@@ -24,4 +24,8 @@
 - The server folder is now NOT part of the workspace because serverless-esbuild doesn't
   support yarn v2/3 pnp
 
-- 
+- MySQL book-it db.t3.micro
+
+  admin/book-it.c37uza9ctf0v.eu-west-2.rds.amazonaws.com port 3306
+
+- knex(847k), sequelize(1m), neo4j-driver, mysql(645k)/mysql2(886k)

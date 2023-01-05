@@ -10,11 +10,16 @@
     "preview": "vite preview",
     "server": "serve -s dist"
   },
+  "resolutions": {
+    "@mui/material": "npm:@mui/joy@latest"
+  },
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@fontsource/public-sans": "^4.5.11",
     "@mui/icons-material": "^5.11.0",
-    "@mui/material": "^5.11.2",
+    "@mui/joy": "^5.0.0-alpha.61",
+    "@mui/material": "npm:@mui/joy@latest",
     "@mui/styles": "^5.11.2",
     "component-lib": "workspace:*",
     "react": "^18.2.0",
@@ -22,7 +27,6 @@
     "vite-tsconfig-paths": "^4.0.3"
   },
   "devDependencies": {
-    "@mui/types": "^7.2.3",
     "@types/node": "^18.11.18",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.10",
@@ -32,5 +36,6 @@
     "prettier": "^2.8.1",
     "typescript": "^4.9.4",
     "vite": "^4.0.3"
-  }
+  },
+  "packageManager": "yarn@3.3.1"
 }

@@ -31,8 +31,9 @@
   "peerDependencies": {
     "@emotion/react": "*",
     "@emotion/styled": "*",
+    "@fontsource/public-sans": "*",
     "@mui/icons-material": "*",
-    "@mui/material": "*",
+    "@mui/joy": "*",
     "react": "*",
     "react-dom": "*"
   },
@@ -40,7 +41,6 @@
     "@babel/core": "^7.20.7",
     "@emotion/babel-plugin": "^11.10.5",
     "@mdx-js/react": "^1.6.22",
-    "@mui/types": "^7.2.3",
     "@storybook/addon-actions": "^6.5.15",
     "@storybook/addon-backgrounds": "^6.5.15",
     "@storybook/addon-docs": "^6.5.15",
@@ -71,5 +71,6 @@
     "vite": "^4.0.3"
   },
   "readme": "ERROR: No README data found!",
-  "_id": "component-lib@1.0.0"
+  "_id": "component-lib@1.0.0",
+  "packageManager": "yarn@3.3.1"
 }

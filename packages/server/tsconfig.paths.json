@@ -6,7 +6,10 @@
       "@as-integrations/aws-lambda": [
         "../node_modules/@as-integrations/aws-lambda"
       ],
-      "@apollo/server/standalone": ["../node_modules/@apollo/server/standalone"]
+      "@apollo/server/standalone": [
+        "../node_modules/@apollo/server/standalone"
+      ],
+      "mysql2": ["../node_modules/mysql2"]
     }
   }
 }
