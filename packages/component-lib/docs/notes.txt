@@ -1,3 +1,12 @@
 - npm init vite@latest react-vite-library -- --template react-ts
 
+- Server side encryption (see Quisito code for this):
+
+  const passwordMatched = await this.bcrypt.compare(password, localUser.passwordHash);
+
+  on the client use bcryptjs
+
+  const salt = await bcrypt.genSalt(saltRounds);
+  const hash = await bcrypt.hash(password, salt);
+
 - 

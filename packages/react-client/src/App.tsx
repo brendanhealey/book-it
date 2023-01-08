@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { CssVarsProvider } from "@mui/joy/styles";
 import Sheet from "@mui/joy/Sheet";
 import Typography from "@mui/joy/Typography";
@@ -6,11 +7,13 @@ import Button from "@mui/joy/Button";
 import Link from "@mui/joy/Link";
 import ModeToggle from "ModeToggle";
 import { Text, Text2 } from "component-lib";
-import { useGetUsersQuery } from "gql/index";
+import { GetUsersDocument, useGetUsersQuery, User } from "gql/index";
+import { useQuery } from "component-lib";
 
 export default function App() {
-  const { data, loading } = useGetUsersQuery();
-  console.log("xxxx", data);
+  console.log("App");
+  // const { data, loading } = useGetUsersQuery();
+  const { data, error } = useQuery(GetUsersDocument, { suspense: true });
   return (
     <CssVarsProvider>
       <ModeToggle />
@@ -56,6 +59,13 @@ export default function App() {
         >
           Don't have an account?
         </Typography>
+        <Suspense fallback={"My Fallback"}>
+          <ul>
+            {data.users.map((item: User) => (
+              <li key={item.id}>{item.email}</li>
+            ))}
+          </ul>
+        </Suspense>
         <Text>hello</Text>
         <Text2>world!</Text2>
       </Sheet>

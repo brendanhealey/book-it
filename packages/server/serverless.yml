@@ -17,4 +17,5 @@ plugins:
   - serverless-offline
 custom:
   serverless-offline:
+    lambdaPort: 4000
     reloadHandler: true
