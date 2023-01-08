@@ -5,8 +5,12 @@ import TextField from "@mui/joy/TextField";
 import Button from "@mui/joy/Button";
 import Link from "@mui/joy/Link";
 import ModeToggle from "ModeToggle";
+import { Text, Text2 } from "component-lib";
+import { typeDefs } from "server";
 
 export default function App() {
+  const x = typeDefs;
+  console.log(x);
   return (
     <CssVarsProvider>
       <ModeToggle />
@@ -52,6 +56,8 @@ export default function App() {
         >
           Don't have an account?
         </Typography>
+        <Text>hello</Text>
+        <Text2>world!</Text2>
       </Sheet>
     </CssVarsProvider>
   );

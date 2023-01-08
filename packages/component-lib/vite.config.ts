@@ -1,7 +1,9 @@
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
+import * as path from 'path';
 import { resolve } from 'path';
 import packageJson from './package.json';
+import fg from 'fast-glob';
 
 const getPackageName = () => {
   return packageJson.name;
@@ -19,10 +21,20 @@ export default defineConfig({
   plugins: [
     react({
       // Exclude storybook stories
-      // exclude: /\.stories\.(t|j)sx?$/,
+      exclude: /\.stories\.(t|j)sx?$/,
       // Only .tsx files
       include: '**/*.tsx',
     }),
+    // {
+    //   name: 'watch-external',
+    //   async buildStart() {
+    //     const files = await fg('src/**/*');
+    //     for (let file of files) {
+    //       console.log('watch file: ', file);
+    //       this.addWatchFile(file);
+    //     }
+    //   },
+    // },
   ],
   build: {
     emptyOutDir: false,
@@ -58,6 +70,11 @@ export default defineConfig({
           'react/jsx-runtime': 'jsxRuntime',
         },
       },
+    },
+  },
+  resolve: {
+    alias: {
+      'my-placeholder': path.join(__dirname, './src'),
     },
   },
 });

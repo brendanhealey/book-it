@@ -1,9 +1,12 @@
 {
   "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "dist",
     "target": "ESNext",
     "module": "ESNext",
     "useDefineForClassFields": true,
-    "allowJs": false,
+    "allowJs": true,
+    "checkJs": true,
     "skipLibCheck": true,
     "esModuleInterop": false,
     "moduleResolution": "Node",
@@ -14,6 +17,7 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "sourceMap": true,
+    "importHelpers": true,
     "paths": {
       // paths are relative to location of extend'ing tsconfig + baseUrl !!
       "component-lib": ["../../component-lib/src"],
@@ -21,4 +25,8 @@
       "server": ["../../server/src"]
     }
   }
+  // "references": [
+  //   { "path": "./packages/component-lib" },
+  //   { "path": "./packages/server" }
+  // ]
 }

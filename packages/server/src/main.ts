@@ -1,5 +1,5 @@
 import { ApolloServer } from "@apollo/server";
-import { startStandaloneServer } from "@apollo/server/standalone";
+import { startServerAndCreateLambdaHandler } from "@as-integrations/aws-lambda";
 import { typeDefs } from "schema";
 import mysql2 from "mysql2";
 
@@ -31,6 +31,4 @@ const server = new ApolloServer({
   introspection: true,
 });
 
-export const localHandler = startStandaloneServer(server, {
-  listen: { port: 4000 },
-});
+export const graphqlHandler = startServerAndCreateLambdaHandler(server);

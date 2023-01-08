@@ -10,14 +10,16 @@ package:
   # individually: true
 functions:
   graphql:
-    handler: src/index.graphqlHandler
+    handler: src/main.graphqlHandler
+  graphql-local:
+    handler: src/local.localHandler
     events:
       - httpApi:
-          path: /
-          method: POST
+        path: /
+        method: POST
       - httpApi:
-          path: /
-          method: GET
+        path: /
+        method: GET
 plugins:
   - serverless-esbuild
   - serverless-offline

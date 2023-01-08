@@ -4,8 +4,13 @@
     "baseUrl": "src",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "jsx": "react-jsx",
-    "composite": true
+    "declaration": true,
+    "declarationDir": "dist",
+    "noEmit": false,
+    "emitDeclarationOnly": true,
+    "isolatedModules": false,
+    "rootDir": "."
   },
-  "include": ["src", "stories"],
-  "exclude": ["node_modules", "**/*.stories.js"]
+  "include": ["src"],
+  "exclude": ["node_modules", "**/node_modules/*", "**/*.stories.js"]
 }
