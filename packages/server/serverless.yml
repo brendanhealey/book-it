@@ -7,37 +7,14 @@ provider:
     cors: true
 package:
   excludeDevDependencies: true
-  # individually: true
 functions:
   graphql:
     handler: src/main.graphqlHandler
   graphql-local:
     handler: src/local.localHandler
-    events:
-      - httpApi:
-        path: /
-        method: POST
-      - httpApi:
-        path: /
-        method: GET
 plugins:
   - serverless-esbuild
   - serverless-offline
 custom:
   serverless-offline:
     reloadHandler: true
-# custom:
-#   esbuild:
-#     packager: yarn
-#     external:
-#       - "@apollo/server"
-#       - "@as-integrations/aws-lambda"
-#       - "graphql"
-#     bundle: true
-#     minify: false
-#     sourcemap: true
-#     exclude: ["aws-sdk"]
-#     target: "node18"
-#     define: { "require.resolve": undefined }
-#     platform: "neutral"
-#     concurrency: 10

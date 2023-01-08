@@ -1,0 +1,34 @@
+overwrite: true
+schema: "http://localhost:4000"
+hooks: afterAllFileWrite
+  - prettier --write
+documents: "src/**/*.graphql"
+generates:
+  src/gql/index.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+      - named-operations-object
+    config:
+      withHooks: true
+      strictScalars: true
+      scalars:
+        BigDecimal: "number"
+        CountryCode: "string"
+        LanguageCode: "string"
+        LocalDate: "string | number | Date"
+        LocalDateTime: "string | number | Date"
+        Locale: "string"
+        Long: "number"
+        Object: "any"
+        Url: "string"
+        YearMonth: "string | Date"
+
+  src/gql/schema.json:
+    plugins:
+      - introspection
+
+  src/gql/schema.graphql:
+    plugins:
+      - schema-ast

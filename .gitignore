@@ -10,3 +10,4 @@ packages/component-lib/build-storybook.log
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+.env

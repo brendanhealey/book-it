@@ -14,4 +14,30 @@ export default defineConfig({
     host: true,
     port: 3000,
   },
+  // build: {
+  //   rollupOptions: {
+  //     external: [
+  //       "react",
+  //       "react-dom",
+  //       "react/jsx-runtime",
+  //       "prop-types",
+  //       "@emotion/react",
+  //       "@emotion/styled",
+  //       "@mui/lab",
+  //       "@mui/joy",
+  //       "@mui/icons-material",
+  //       "@mui/material",
+  //       "@mui/material/styles",
+  //       "@mui/material/Slide",
+  //       "@mui/styles",
+  //     ],
+  //     output: {
+  //       globals: {
+  //         react: "React",
+  //         "react-dom": "ReactDOM",
+  //         "react/jsx-runtime": "jsxRuntime",
+  //       },
+  //     },
+  //   },
+  // },
 });

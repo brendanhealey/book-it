@@ -6,11 +6,11 @@ import Button from "@mui/joy/Button";
 import Link from "@mui/joy/Link";
 import ModeToggle from "ModeToggle";
 import { Text, Text2 } from "component-lib";
-import { typeDefs } from "server";
+import { useGetUsersQuery } from "gql/index";
 
 export default function App() {
-  const x = typeDefs;
-  console.log(x);
+  const { data, loading } = useGetUsersQuery();
+  console.log("xxxx", data);
   return (
     <CssVarsProvider>
       <ModeToggle />

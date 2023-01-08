@@ -1,10 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import { Text2 } from "component-lib";
+import { graphqlClient } from "services/graphql";
+import { ApolloProvider } from "@apollo/client";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <App />
+    <ApolloProvider client={graphqlClient}>
+      <App />
+    </ApolloProvider>
   </React.StrictMode>
 );
