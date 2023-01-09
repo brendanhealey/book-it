@@ -4,7 +4,7 @@ hooks: afterAllFileWrite
   - prettier --write
 documents: "src/**/*.graphql"
 generates:
-  src/gql/index.ts:
+  src/gql/generated/index.ts:
     plugins:
       - typescript
       - typescript-operations
@@ -14,21 +14,21 @@ generates:
       withHooks: true
       strictScalars: true
       scalars:
-        BigDecimal: "number"
-        CountryCode: "string"
-        LanguageCode: "string"
-        LocalDate: "string | number | Date"
-        LocalDateTime: "string | number | Date"
-        Locale: "string"
-        Long: "number"
-        Object: "any"
-        Url: "string"
-        YearMonth: "string | Date"
+        # BigDecimal: "number"
+        # CountryCode: "string"
+        # LanguageCode: "string"
+        # LocalDate: "string | number | Date"
+        # LocalDateTime: "string | number | Date"
+        # Locale: "string"
+        # Long: "number"
+        # Object: "any"
+        # Url: "string"
+        # YearMonth: "string | Date"
 
-  src/gql/schema.json:
+  src/gql/generated/schema.json:
     plugins:
       - introspection
 
-  src/gql/schema.graphql:
+  src/gql/generated/schema.graphql:
     plugins:
       - schema-ast

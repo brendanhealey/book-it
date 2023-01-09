@@ -18,4 +18,15 @@
 
 - yarn dlx sb@next info
 
-- 
+- general todo:
+- add note about db public
+- does .gitignore need to be there for server?
+- encrypt pw (later)
+- env for aws connection see broker dash
+- do header/footer nav panel
+- what will go in nav panel?
+- what are some examples of lib components?
+- do a hook up to the db from the client
+- add React Router/RTK
+- what’s going in the store??
+- what other packages need to be in there? React Router/Redux Toolkit/I18Next

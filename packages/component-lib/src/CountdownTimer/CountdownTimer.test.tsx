@@ -1,9 +1,10 @@
 import React from 'react';
 import { render, waitFor } from '@testing-library/react';
-import { composeStories } from '@storybook/testing-react';
 import { act } from 'react-dom/test-utils';
 import * as stories from './CountdownTimer.stories';
 import CountdownTimer from './CountdownTimer';
+import { composeStories } from '@storybook/testing-react';
+import { jest, test, expect } from '@jest/globals';
 
 const { FiveSeconds, OneMinute, OverAnHour } = composeStories(stories);
 

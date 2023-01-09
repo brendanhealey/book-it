@@ -1,0 +1,19 @@
+type Mutation {
+  userLogin(email: String, password: String): UserLoginResponse
+}
+
+type Query {
+  users: [User]
+}
+
+type User {
+  email: String
+  id: String
+  name: String
+  password: String
+}
+
+type UserLoginResponse {
+  jwt: String
+  status: String
+}

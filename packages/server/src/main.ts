@@ -14,6 +14,20 @@ const resolvers = {
   Query: {
     users: () => getQuery("SELECT * FROM `users`"),
   },
+  Mutation: {
+    userLogin: (email: string, password: string) => {
+      console.log(email, password);
+      console.log("XXXXXXXXXXXXXXXXXXXXXXXXXXX");
+      return {
+        data: {
+          userLogin: {
+            status: "success",
+            jwt: "abc123",
+          },
+        },
+      };
+    },
+  },
 };
 
 function getQuery(sql) {

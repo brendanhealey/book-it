@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import Typography from '@mui/joy/Typography';
-import { useInterval } from './useInterval';
+import { useInterval } from 'component-lib';
 
 const UPDATE_INTERVAL = 1000; // milliseconds, update the display every 1 second
 
-interface TimerProps {
+export interface TimerProps {
   interval: {
     hours?: number;
     minutes?: number;
     seconds?: number;
   };
   callback?: () => void;
+  colour?: string;
 }
 
-export const CountdownTimer = ({ interval, callback = undefined }: TimerProps) => {
+export const CountdownTimer = ({ interval, callback = undefined, colour = 'red' }: TimerProps) => {
   const { hours = 0, minutes = 0, seconds = 0 } = interval;
   // the line check is confused by the destructuring but I think it's ok
   // eslint-disable-next-line react/hook-use-state
@@ -38,7 +39,7 @@ export const CountdownTimer = ({ interval, callback = undefined }: TimerProps) =
   }, millisecs);
 
   return (
-    <Typography component="span">
+    <Typography display="inline" component="span" textColor={colour}>
       {`${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`}
     </Typography>
   );

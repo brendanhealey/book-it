@@ -9,4 +9,13 @@ export const typeDefs = `#graphql
   type Query {
     users: [User]
   }
+
+  type Mutation {
+    userLogin(email: String, password: String): UserLoginResponse
+  }
+
+  type UserLoginResponse {
+    status: String
+    jwt: String
+  }
 `;

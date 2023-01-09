@@ -14,14 +14,17 @@ import {
   useQuery as useApolloQuery,
 } from "@apollo/client";
 import { useMemo } from "react";
+
 export type QueryHookOptions<TData = any, TVariables = OperationVariables> = {
   suspense?: boolean;
 } & ApolloQueryHookOptions<TData, TVariables>;
+
 export const useQuery = <TData = any, TVariables = OperationVariables>(
   query: DocumentNode | TypedDocumentNode<TData, TVariables>,
   options?: QueryHookOptions<TData, TVariables>
 ): QueryResult<TData, TVariables> =>
   useSuspenseQuery(useApolloQuery(query, options), options);
+  
 const useSuspenseQuery = <TData, TVariables>(
   { data, loading, error, observable, ...res }: QueryResult<TData, TVariables>,
   options?: QueryHookOptions<TData, TVariables>

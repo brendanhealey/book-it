@@ -27,7 +27,7 @@
   ],
   "scripts": {
     "compile": "tsc",
-    "start": "yarn compile && node ./dist/local.js",
+    "start": "yarn compile && node --trace-warnings ./dist/main.js",
     "sl": "sls invoke local -f graphql-local",
     "so": "CHOKIDAR_USEPOLLING=true && sls offline",
     "son": "nodemon -e \"ts,js\" --exec \"serverless offline\"",

@@ -1,4 +1,4 @@
-import { useIsMounted } from '../../component-lib/src/hooks';
+import { useIsMounted } from '.';
 import { useState, useEffect } from 'react';
 
 /**

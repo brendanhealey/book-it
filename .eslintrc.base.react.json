@@ -20,7 +20,6 @@
     "react/button-has-type": "warn",
     "react/prop-types": "warn",
     "react/no-array-index-key": "warn",
-    "react/react-in-jsx-scope": "warn",
     "react/jsx-uses-react": "warn",
     "react/display-name": "warn",
     "react/no-danger-with-children": "warn",
@@ -30,6 +29,8 @@
     "react/jsx-one-expression-per-line": "off",
     "react/jsx-max-props-per-line": "off",
     "react/require-default-props": "off",
-    "react/jsx-fragments": "off"
+    "react/jsx-fragments": "off",
+    "react/no-multi-comp": "off",
+    "react/react-in-jsx-scope": "off"
   }
 }
