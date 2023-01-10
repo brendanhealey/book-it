@@ -17,13 +17,13 @@ export type Scalars = {
 
 export type Mutation = {
   __typename?: 'Mutation';
-  userLogin?: Maybe<UserLoginResponse>;
+  userLogin: UserLoginResponse;
 };
 
 
 export type MutationUserLoginArgs = {
-  email?: InputMaybe<Scalars['String']>;
-  password?: InputMaybe<Scalars['String']>;
+  email: Scalars['String'];
+  password: Scalars['String'];
 };
 
 export type Query = {
@@ -41,17 +41,17 @@ export type User = {
 
 export type UserLoginResponse = {
   __typename?: 'UserLoginResponse';
-  jwt?: Maybe<Scalars['String']>;
-  status?: Maybe<Scalars['String']>;
+  jwt: Scalars['String'];
+  status: Scalars['String'];
 };
 
 export type UserLoginMutationVariables = Exact<{
-  email?: InputMaybe<Scalars['String']>;
-  password?: InputMaybe<Scalars['String']>;
+  email: Scalars['String'];
+  password: Scalars['String'];
 }>;
 
 
-export type UserLoginMutation = { __typename?: 'Mutation', userLogin?: { __typename?: 'UserLoginResponse', status?: string | null, jwt?: string | null } | null };
+export type UserLoginMutation = { __typename?: 'Mutation', userLogin: { __typename?: 'UserLoginResponse', status: string, jwt: string } };
 
 export type GetUserQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -60,7 +60,7 @@ export type GetUserQuery = { __typename?: 'Query', users?: Array<{ __typename?: 
 
 
 export const UserLoginDocument = gql`
-    mutation UserLogin($email: String, $password: String) {
+    mutation UserLogin($email: String!, $password: String!) {
   userLogin(email: $email, password: $password) {
     status
     jwt

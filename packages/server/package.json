@@ -27,6 +27,7 @@
   ],
   "scripts": {
     "compile": "tsc",
+    "server": "ts-node ./src/server.ts",
     "start": "yarn compile && node --trace-warnings ./dist/main.js",
     "sl": "sls invoke local -f graphql-local",
     "so": "CHOKIDAR_USEPOLLING=true && sls offline",
@@ -39,6 +40,9 @@
   "dependencies": {
     "@apollo/server": "^4.3.0",
     "@as-integrations/aws-lambda": "^1.1.0",
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
     "graphql": "^16.6.0",
     "knex": "^2.3.0",
     "mysql2": "^2.3.3"
@@ -56,7 +60,7 @@
     "serverless": "^3.0.0",
     "serverless-esbuild": "^1.23.3",
     "serverless-offline": "^12.0.3",
-    "ts-node": "^10.4.0",
+    "ts-node": "^10.9.1",
     "tsconfig-paths": "^3.9.0",
     "typescript": "^4.9.4"
   },

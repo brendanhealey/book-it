@@ -19,6 +19,7 @@
     "react/jsx-uses-vars": 2,
     "react/button-has-type": "warn",
     "react/prop-types": "warn",
+    "react/jsx-indent-props": "off",
     "react/no-array-index-key": "warn",
     "react/jsx-uses-react": "warn",
     "react/display-name": "warn",

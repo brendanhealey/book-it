@@ -4,14 +4,28 @@ provider:
   runtime: nodejs18.x
   region: eu-west-2
   httpApi:
-    cors: true
+    cors: false
 package:
   excludeDevDependencies: true
 functions:
-  graphql:
-    handler: src/main.graphqlHandler
+  # graphql:
+  #   handler: src/main.graphqlHandler
+  #   events:
+  #     - httpApi:
+  #         path: /
+  #         method: POST
+  #     - httpApi:
+  #         path: /
+  #         method: GET
   graphql-local:
     handler: src/local.localHandler
+    events:
+      - httpApi:
+          path: /
+          method: POST
+      - httpApi:
+          path: /
+          method: GET
 plugins:
   - serverless-esbuild
   - serverless-offline

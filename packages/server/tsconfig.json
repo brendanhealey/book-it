@@ -8,7 +8,7 @@
     "removeComments": true,
     "sourceMap": true,
     "module": "ESNext",
-    "target": "ESNext",
+    "target": "esnext",
     "outDir": "dist",
     "skipLibCheck": true,
     "rootDirs": ["src"],
@@ -17,7 +17,7 @@
     "composite": true,
     "declaration": true
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "src/server.mjs"],
   "exclude": [
     "node_modules/**/*",
     ".serverless/**/*",
@@ -26,6 +26,9 @@
     ".vscode/**/*"
   ],
   "ts-node": {
-    "require": ["tsconfig-paths/register"]
+    "require": ["tsconfig-paths/register"],
+    "compilerOptions": {
+      "module": "commonjs"
+    }
   }
 }

@@ -15,16 +15,13 @@ const resolvers = {
     users: () => getQuery("SELECT * FROM `users`"),
   },
   Mutation: {
+    // userLogin: (_, { email, password }) => {
     userLogin: (email: string, password: string) => {
       console.log(email, password);
       console.log("XXXXXXXXXXXXXXXXXXXXXXXXXXX");
       return {
-        data: {
-          userLogin: {
-            status: "success",
-            jwt: "abc123",
-          },
-        },
+        status: "success",
+        jwt: "abc123",
       };
     },
   },

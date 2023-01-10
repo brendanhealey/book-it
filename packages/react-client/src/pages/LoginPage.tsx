@@ -4,13 +4,13 @@ import { useUserLoginMutation } from "gql/generated";
 export const LoginPage = () => {
   const [userLoginMutation] = useUserLoginMutation();
 
-  const login = async () => {
+  const login = async (email: string, password: string) => {
     console.log("login");
     try {
       const response = await userLoginMutation({
         variables: {
-          email: "healey_brendan@yahoo.co.uk",
-          password: "fred",
+          email,
+          password,
         },
       });
       console.log("response", response);
@@ -19,7 +19,9 @@ export const LoginPage = () => {
     }
   };
 
-  return <LoginComponent greeting="Welcome to Book-it!" loginAction={login} />;
+  return (
+    <LoginComponent greeting="Welcome to Book-it!" actionCallback={login} />
+  );
 };
 
 export default LoginPage;
