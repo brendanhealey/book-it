@@ -1,5 +1,5 @@
 query GetUser {
-  users {
+  getUsers {
     id
     email
     password

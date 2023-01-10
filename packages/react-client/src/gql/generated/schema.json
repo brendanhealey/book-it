@@ -84,7 +84,7 @@
         "description": null,
         "fields": [
           {
-            "name": "users",
+            "name": "getUsers",
             "description": null,
             "args": [],
             "type": {

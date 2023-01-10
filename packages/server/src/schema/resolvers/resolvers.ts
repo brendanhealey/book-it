@@ -1,9 +1,19 @@
 import db from "db";
+import { resourceLimits } from "worker_threads";
 
-const getQuery = async (sql) => {
-  db.query(sql, (error, results) => {
-    if (error) return error;
-    return results;
+// this is one way of doing it
+const getQuery = async (sql: string) => {
+  const [rows] = await db.promise().query(sql);
+  return rows;
+};
+
+// and this is another
+const getQuery2 = (sql: string) => {
+  return new Promise((resolve, reject) => {
+    db.query(sql, (error, results) => {
+      if (error) return reject(error);
+      return resolve(results);
+    });
   });
 };
 
@@ -16,7 +26,7 @@ export const resolvers = {
       console.log(email, password);
       return {
         __typename: "UserLoginResponse",
-        status: "success",
+        status: "successAB",
         jwt: "abc123",
       };
     },

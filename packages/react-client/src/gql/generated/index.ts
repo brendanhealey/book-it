@@ -28,7 +28,7 @@ export type MutationUserLoginArgs = {
 
 export type Query = {
   __typename?: 'Query';
-  users?: Maybe<Array<Maybe<User>>>;
+  getUsers?: Maybe<Array<Maybe<User>>>;
 };
 
 export type User = {
@@ -56,7 +56,7 @@ export type UserLoginMutation = { __typename?: 'Mutation', userLogin: { __typena
 export type GetUserQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetUserQuery = { __typename?: 'Query', users?: Array<{ __typename?: 'User', id?: string | null, email?: string | null, password?: string | null, name?: string | null } | null> | null };
+export type GetUserQuery = { __typename?: 'Query', getUsers?: Array<{ __typename?: 'User', id?: string | null, email?: string | null, password?: string | null, name?: string | null } | null> | null };
 
 
 export const UserLoginDocument = gql`
@@ -96,7 +96,7 @@ export type UserLoginMutationResult = Apollo.MutationResult<UserLoginMutation>;
 export type UserLoginMutationOptions = Apollo.BaseMutationOptions<UserLoginMutation, UserLoginMutationVariables>;
 export const GetUserDocument = gql`
     query GetUser {
-  users {
+  getUsers {
     id
     email
     password

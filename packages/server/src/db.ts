@@ -1,6 +1,6 @@
 import mysql2 from "mysql2";
 
-console.log("connecting to RDS db: ", process.env.DB_BOOK_IT_HOST);
+console.log("connecting to RDS db:", process.env.DB_BOOK_IT_HOST);
 
 export const db = mysql2.createConnection({
   host: process.env.DB_BOOK_IT_HOST,
