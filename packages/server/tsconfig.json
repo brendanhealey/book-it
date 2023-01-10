@@ -3,21 +3,15 @@
   "compilerOptions": {
     "lib": ["dom", "ESNext"],
     "moduleResolution": "node",
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "removeComments": true,
-    "sourceMap": true,
     "module": "ESNext",
     "target": "esnext",
     "outDir": "dist",
     "skipLibCheck": true,
     "rootDirs": ["src"],
     "esModuleInterop": true,
-    "types": ["node"],
-    "composite": true,
-    "declaration": true
+    "types": ["node"]
   },
-  "include": ["src/**/*.ts", "src/server.mjs"],
+  "include": ["src/**/*.ts"],
   "exclude": [
     "node_modules/**/*",
     ".serverless/**/*",

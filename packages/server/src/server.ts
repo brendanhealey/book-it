@@ -1,4 +1,4 @@
-// npm install @apollo/server express graphql cors body-parser
+// @ts-nocheck
 import { ApolloServer } from "@apollo/server";
 import { expressMiddleware } from "@apollo/server/express4";
 import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
@@ -6,12 +6,14 @@ import express from "express";
 import http from "http";
 import cors from "cors";
 import bodyParser from "body-parser";
-import { typeDefs, resolvers } from "schema";
+import { typeDefs, resolvers } from "./schema";
 
 interface MyContext {
   token?: String;
 }
 
+// work around the error:
+// await is only valid in async functions and the top level bodies of modules
 (async () => {
   // Required logic for integrating with Express
   const app = express();

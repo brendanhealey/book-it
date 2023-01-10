@@ -2,9 +2,6 @@
   "name": "server",
   "version": "1.0.0",
   "private": true,
-  "installConfig": {
-    "hoistingLimits": "workspaces"
-  },
   "main": "./dist/%npm_package_name%.js",
   "module": "./dist/%npm_package_name%.mjs",
   "types": "./dist/src/index.d.ts",
@@ -27,7 +24,7 @@
   ],
   "scripts": {
     "compile": "tsc",
-    "server": "ts-node ./src/server.ts",
+    "server": "ts-node-esm ./src/server.ts",
     "start": "yarn compile && node --trace-warnings ./dist/main.js",
     "sl": "sls invoke local -f graphql-local",
     "so": "CHOKIDAR_USEPOLLING=true && sls offline",
