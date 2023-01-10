@@ -1,5 +1,4 @@
 import db from "db";
-import { resourceLimits } from "worker_threads";
 
 // this is one way of doing it
 const getQuery = async (sql: string) => {
@@ -26,7 +25,7 @@ export const resolvers = {
       console.log(email, password);
       return {
         __typename: "UserLoginResponse",
-        status: "successAB",
+        status: "success",
         jwt: "abc123",
       };
     },
