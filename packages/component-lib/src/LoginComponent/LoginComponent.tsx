@@ -11,7 +11,6 @@ export interface LoginComponentProps {
 }
 
 export const LoginComponent = ({ greeting = 'Welcome!', actionCallback }: LoginComponentProps) => {
-  console.log('LoginComponent');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
