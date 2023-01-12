@@ -2,10 +2,14 @@ import Sheet from "@mui/joy/Sheet";
 import { LoginComponent } from "component-lib";
 import { useUserLoginMutation } from "gql/generated";
 import { useNavigate } from "react-router-dom";
+import { useStoreActions } from "store";
 
 export const LoginPage = () => {
-  const [userLoginMutation] = useUserLoginMutation();
   const navigate = useNavigate();
+  const [userLoginMutation] = useUserLoginMutation();
+  const { setAccessToken, setIsLoggedIn } = useStoreActions(
+    (actions) => actions.securityStore
+  );
 
   const login = async (email: string, password: string) => {
     console.log("login");
@@ -21,6 +25,8 @@ export const LoginPage = () => {
       console.log("there was a problem", err);
     }
 
+    setIsLoggedIn(true);
+    setAccessToken("fred");
     navigate("/dashboard");
   };
 

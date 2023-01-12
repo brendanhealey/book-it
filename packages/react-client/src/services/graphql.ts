@@ -7,6 +7,7 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { onError } from "@apollo/client/link/error";
 import toast from "appContext/SnackbarUtils";
+import store from "store";
 import { fetchWithTimeout } from "./fetchWithTimeout";
 
 /**
@@ -15,11 +16,11 @@ import { fetchWithTimeout } from "./fetchWithTimeout";
 export const getLinks = (): ApolloLink[] => {
   // Configure the Authentication link which injects the authentication token into each request
   const authLink = setContext(async (_, { headers }) => {
-    // const accessToken = store.getState().loginStore.accessToken
+    const accessToken = store.getState().securityStore.accessToken;
     return {
       headers: {
         ...headers,
-        // authorization: accessToken ? `Bearer ${accessToken}` : '',
+        authorization: accessToken ? `Bearer ${accessToken}` : "",
       },
     };
   });
