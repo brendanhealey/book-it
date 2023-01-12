@@ -32,7 +32,6 @@
     "@apollo/client": "^3.7.3",
     "@babel/core": "^7.20.7",
     "@emotion/babel-plugin": "^11.10.5",
-    "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@fontsource/public-sans": "^4.5.11",
     "@jest/globals": "^29.3.1",
