@@ -46,7 +46,7 @@ export const LoginComponent = ({ greeting = 'Welcome!', actionCallback }: LoginC
         Login
       </Button>
       <Typography endDecorator={<Link href="/sign-up">Sign up</Link>} fontSize="sm" sx={{ alignSelf: 'center' }}>
-        Don&apost have an account?
+        Don't have an account?
       </Typography>
     </Sheet>
   );

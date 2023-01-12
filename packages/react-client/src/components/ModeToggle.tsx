@@ -3,17 +3,15 @@ import Button from "@mui/joy/Button";
 import { useColorScheme } from "@mui/joy/styles";
 import DarkIcon from "@mui/icons-material/Brightness4";
 import LightIcon from "@mui/icons-material/Brightness7";
+import { useIsMounted } from "component-lib";
 
-const ModeToggle = () => {
+export const ModeToggle = () => {
   const { mode, setMode } = useColorScheme();
-  const [mounted, setMounted] = useState(false);
+  const isMounted = useIsMounted();
 
   // necessary for server-side rendering
   // because mode is undefined on the server
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-  if (!mounted) {
+  if (!isMounted) {
     return null;
   }
 

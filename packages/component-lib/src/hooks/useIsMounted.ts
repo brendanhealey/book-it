@@ -1,9 +1,9 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from 'react';
 
 /*
- ** Useage:
+ ** Useage:const isMounted = useIsMounted()
  **
- ** const isMounted = useIsMounted()
+ **
  ** if(isMounted()) { ... }
  */
 
