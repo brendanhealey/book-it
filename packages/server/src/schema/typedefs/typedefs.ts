@@ -17,7 +17,7 @@ export const typeDefs = `#graphql
 
   type UserLoginResponse {
     status: StatusType
-    jwt: String!
+    jwt: String
   }
 
   enum StatusType {
