@@ -10,7 +10,6 @@ export const SecuredRoute = ({
   children,
   isLoggedIn,
 }: SecuredRouteProps): JSX.Element => {
-  console.log("children", children);
   if (!isLoggedIn) {
     return <Navigate to={constants.SECURED_ROUTE_REDIRECT} replace />;
   }

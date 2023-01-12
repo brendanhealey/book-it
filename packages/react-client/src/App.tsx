@@ -1,6 +1,4 @@
-import { CssVarsProvider, styled } from "@mui/joy/styles";
-import LoginPage from "pages/LoginPage";
-import Sheet, { SheetProps } from "@mui/joy/Sheet";
+import { CssVarsProvider } from "@mui/joy/styles";
 import Banner from "components/Banner";
 import {
   LayoutContent,
@@ -10,25 +8,10 @@ import {
   LayoutSidebar,
   LayoutWrapper,
 } from "AppStyles";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import SecuredRoute from "components/SecuredRoute";
-import Dashboard from "pages/Dashboard";
+import { RouterProvider } from "react-router-dom";
+import router from "routes";
 
 export const App = () => {
-  const isLoggedIn = true; // to be moved to store
-  const router = createBrowserRouter([
-    // PUT UNSECURED PAGES HERE
-    { path: "/", element: <LoginPage /> },
-    {
-      element: <SecuredRoute isLoggedIn={isLoggedIn} />,
-      children: [
-        // PUT SECURED PAGES HERE
-        { path: "/dashboard", element: <Dashboard /> },
-        { path: "/temp", element: <Dashboard /> },
-      ],
-    },
-  ]);
-
   return (
     <CssVarsProvider>
       <LayoutWrapper>
