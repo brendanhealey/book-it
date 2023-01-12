@@ -8,15 +8,20 @@ export const typeDefs = `#graphql
   }
 
   type Query {
-    getUsers: [User]
-  }
-
-  type UserLoginResponse {
-    status: String!
-    jwt: String!
+    getUser(email: String): [User]
   }
 
   type Mutation {
-    userLogin(email: String!, password: String!): UserLoginResponse!
+    userLogin(email: String, password: String): UserLoginResponse
   }
-`;
+
+  type UserLoginResponse {
+    status: StatusType
+    jwt: String!
+  }
+
+  enum StatusType {
+    success
+    failure
+  }
+  `;

@@ -9,7 +9,7 @@ import bodyParser from "body-parser";
 import { typeDefs, resolvers } from "./schema";
 
 interface MyContext {
-  token?: String;
+  accessToken?: String;
 }
 
 // work around the error:
@@ -42,7 +42,7 @@ interface MyContext {
     // expressMiddleware accepts the same arguments:
     // an Apollo Server instance and optional configuration options
     expressMiddleware(server, {
-      context: async ({ req }) => ({ token: req.headers.token }),
+      context: async ({ req }) => ({ accessToken: req.headers.accessToken }),
     })
   );
 

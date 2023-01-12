@@ -7887,15 +7887,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bcryptjs-react@npm:^2.4.6":
-  version: 2.4.6
-  resolution: "bcryptjs-react@npm:2.4.6"
-  bin:
-    bcrypt: bin/bcrypt
-  checksum: f3bd3c662b6f86411455570b9ded6db41b5b737891384346585769b201363ef5954ffb09383230a9445060b6fe8369250b3c89f37e4c9a9e8a43561e32cba14e
-  languageName: node
-  linkType: hard
-
 "better-opn@npm:^2.1.1":
   version: 2.1.1
   resolution: "better-opn@npm:2.1.1"
@@ -18260,7 +18251,6 @@ __metadata:
     "@types/react": ^18.0.26
     "@types/react-dom": ^18.0.10
     "@vitejs/plugin-react": ^3.0.0
-    bcryptjs-react: ^2.4.6
     component-lib: "workspace:*"
     easy-peasy: ^5.2.0
     eslint: ^8.30.0

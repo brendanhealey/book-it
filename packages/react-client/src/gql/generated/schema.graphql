@@ -1,9 +1,14 @@
 type Mutation {
-  userLogin(email: String!, password: String!): UserLoginResponse!
+  userLogin(email: String, password: String): UserLoginResponse
 }
 
 type Query {
-  getUsers: [User]
+  getUser(email: String): [User]
+}
+
+enum StatusType {
+  failure
+  success
 }
 
 type User {
@@ -15,5 +20,5 @@ type User {
 
 type UserLoginResponse {
   jwt: String!
-  status: String!
+  status: StatusType
 }

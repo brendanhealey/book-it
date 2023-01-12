@@ -18,6 +18,15 @@
 
 - yarn dlx sb@next info
 
+- High CPU from vmmemWSL
+
+  from PowerShell:
+    wsl --shutdown
+    Restart-Service LxssManager
+  also:
+    wsl -l -v
+    wsl -t Ubuntu
+
 - general todo:
 - add note about db public
 - does .gitignore need to be there for server?

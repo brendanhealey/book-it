@@ -18,7 +18,6 @@
     "@mui/joy": "^5.0.0-alpha.61",
     "@mui/material": "^5.11.3",
     "@mui/styles": "^5.11.2",
-    "bcryptjs-react": "^2.4.6",
     "component-lib": "workspace:*",
     "easy-peasy": "^5.2.0",
     "graphql": "^16.6.0",

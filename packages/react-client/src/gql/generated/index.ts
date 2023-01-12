@@ -17,19 +17,29 @@ export type Scalars = {
 
 export type Mutation = {
   __typename?: 'Mutation';
-  userLogin: UserLoginResponse;
+  userLogin?: Maybe<UserLoginResponse>;
 };
 
 
 export type MutationUserLoginArgs = {
-  email: Scalars['String'];
-  password: Scalars['String'];
+  email?: InputMaybe<Scalars['String']>;
+  password?: InputMaybe<Scalars['String']>;
 };
 
 export type Query = {
   __typename?: 'Query';
-  getUsers?: Maybe<Array<Maybe<User>>>;
+  getUser?: Maybe<Array<Maybe<User>>>;
 };
+
+
+export type QueryGetUserArgs = {
+  email?: InputMaybe<Scalars['String']>;
+};
+
+export enum StatusType {
+  Failure = 'failure',
+  Success = 'success'
+}
 
 export type User = {
   __typename?: 'User';
@@ -42,7 +52,7 @@ export type User = {
 export type UserLoginResponse = {
   __typename?: 'UserLoginResponse';
   jwt: Scalars['String'];
-  status: Scalars['String'];
+  status?: Maybe<StatusType>;
 };
 
 export type UserLoginMutationVariables = Exact<{
@@ -51,12 +61,14 @@ export type UserLoginMutationVariables = Exact<{
 }>;
 
 
-export type UserLoginMutation = { __typename?: 'Mutation', userLogin: { __typename?: 'UserLoginResponse', status: string, jwt: string } };
+export type UserLoginMutation = { __typename?: 'Mutation', userLogin?: { __typename?: 'UserLoginResponse', status?: StatusType | null, jwt: string } | null };
 
-export type GetUserQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetUserQueryVariables = Exact<{
+  email: Scalars['String'];
+}>;
 
 
-export type GetUserQuery = { __typename?: 'Query', getUsers?: Array<{ __typename?: 'User', id?: string | null, email?: string | null, password?: string | null, name?: string | null } | null> | null };
+export type GetUserQuery = { __typename?: 'Query', getUser?: Array<{ __typename?: 'User', id?: string | null, email?: string | null, password?: string | null, name?: string | null } | null> | null };
 
 
 export const UserLoginDocument = gql`
@@ -95,8 +107,8 @@ export type UserLoginMutationHookResult = ReturnType<typeof useUserLoginMutation
 export type UserLoginMutationResult = Apollo.MutationResult<UserLoginMutation>;
 export type UserLoginMutationOptions = Apollo.BaseMutationOptions<UserLoginMutation, UserLoginMutationVariables>;
 export const GetUserDocument = gql`
-    query GetUser {
-  getUsers {
+    query GetUser($email: String!) {
+  getUser(email: $email) {
     id
     email
     password
@@ -117,10 +129,11 @@ export const GetUserDocument = gql`
  * @example
  * const { data, loading, error } = useGetUserQuery({
  *   variables: {
+ *      email: // value for 'email'
  *   },
  * });
  */
-export function useGetUserQuery(baseOptions?: Apollo.QueryHookOptions<GetUserQuery, GetUserQueryVariables>) {
+export function useGetUserQuery(baseOptions: Apollo.QueryHookOptions<GetUserQuery, GetUserQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
         return Apollo.useQuery<GetUserQuery, GetUserQueryVariables>(GetUserDocument, options);
       }
