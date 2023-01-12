@@ -7,7 +7,7 @@ export const LayoutHeader = styled(Sheet)<SheetProps>(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
-  margin: 0,
+  marginBottom: 8,
   padding: 4,
 }));
 
@@ -34,10 +34,7 @@ LayoutSidebar.defaultProps = {
 };
 
 export const LayoutContent = styled(Sheet)<SheetProps>(({ theme }) => ({
-  display: "flex",
-  flex: 1,
   width: "100%",
-  justifyContent: "center",
 }));
 
 export const LayoutFooter = styled(Sheet)<SheetProps>(({ theme }) => ({}));
