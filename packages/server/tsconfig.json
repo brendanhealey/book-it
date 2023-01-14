@@ -12,13 +12,7 @@
     "types": ["node"]
   },
   "include": ["src/**/*"],
-  "exclude": [
-    "node_modules/**/*",
-    ".serverless/**/*",
-    ".webpack/**/*",
-    "_warmup/**/*",
-    ".vscode/**/*"
-  ],
+  "exclude": ["node_modules/**/*", ".serverless/**/*", ".vscode/**/*"],
   "ts-node": {
     "require": ["tsconfig-paths/register"],
     "compilerOptions": {

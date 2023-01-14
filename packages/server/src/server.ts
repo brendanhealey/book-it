@@ -1,18 +1,22 @@
+/**
+ * IMPORTANT:
+ *
+ * If you add an import here you will most likely need to update tsconfig.paths.json
+ * or the import will show as an error in the IDE - although it will work when you
+ * start the server. This is to do with the fact we're generating commonjs and don't
+ * have "type": "module" in the package.json (this causes all sorts of other problems).
+ */
+
 import { ApolloServer } from "@apollo/server";
-// @ts-ignore
 import { expressMiddleware } from "@apollo/server/express4";
-// @ts-ignore
 import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
-// @ts-ignore
 import express from "express";
 import http from "http";
-// @ts-ignore
 import cors from "cors";
-// @ts-ignore
 import bodyParser from "body-parser";
 import { typeDefs, resolvers } from "./gql/schema";
 
-export interface ServerContext {
+export interface IServerContext {
   accessToken: String;
 }
 
@@ -28,7 +32,7 @@ export interface ServerContext {
 
   // Same ApolloServer initialization as before, plus the drain plugin
   // for our httpServer.
-  const server = new ApolloServer<ServerContext>({
+  const server = new ApolloServer<IServerContext>({
     typeDefs,
     resolvers,
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],

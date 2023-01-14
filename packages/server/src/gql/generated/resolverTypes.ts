@@ -1,10 +1,12 @@
 import { GraphQLResolveInfo } from 'graphql';
-import { ServerContext } from './src/server';
+import { UserModel } from './src/gql/generated/models';
+import { IServerContext } from '../../server';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type RequireFields<T, K extends keyof T> = Omit<T, K> & { [P in K]-?: NonNullable<T[P]> };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -16,13 +18,13 @@ export type Scalars = {
 
 export type Mutation = {
   __typename?: 'Mutation';
-  userLogin?: Maybe<UserLoginResponse>;
+  userLogin: UserLoginResponse;
 };
 
 
 export type MutationUserLoginArgs = {
-  email?: InputMaybe<Scalars['String']>;
-  password?: InputMaybe<Scalars['String']>;
+  email: Scalars['String'];
+  password: Scalars['String'];
 };
 
 export type Query = {
@@ -32,7 +34,7 @@ export type Query = {
 
 
 export type QueryGetUserArgs = {
-  email?: InputMaybe<Scalars['String']>;
+  email: Scalars['String'];
 };
 
 export enum StatusType {
@@ -42,16 +44,16 @@ export enum StatusType {
 
 export type User = {
   __typename?: 'User';
-  email?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
-  password?: Maybe<Scalars['String']>;
+  email: Scalars['String'];
+  id: Scalars['String'];
+  name: Scalars['String'];
+  password: Scalars['String'];
 };
 
 export type UserLoginResponse = {
   __typename?: 'UserLoginResponse';
   jwt?: Maybe<Scalars['String']>;
-  status?: Maybe<StatusType>;
+  status: StatusType;
 };
 
 export type WithIndex<TObject> = TObject & Record<string, any>;
@@ -129,7 +131,7 @@ export type ResolversTypes = ResolversObject<{
   Query: ResolverTypeWrapper<{}>;
   StatusType: StatusType;
   String: ResolverTypeWrapper<Scalars['String']>;
-  User: ResolverTypeWrapper<User>;
+  User: ResolverTypeWrapper<UserModel>;
   UserLoginResponse: ResolverTypeWrapper<UserLoginResponse>;
 }>;
 
@@ -139,33 +141,33 @@ export type ResolversParentTypes = ResolversObject<{
   Mutation: {};
   Query: {};
   String: Scalars['String'];
-  User: User;
+  User: UserModel;
   UserLoginResponse: UserLoginResponse;
 }>;
 
-export type MutationResolvers<ContextType = ServerContext, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = ResolversObject<{
-  userLogin?: Resolver<Maybe<ResolversTypes['UserLoginResponse']>, ParentType, ContextType, Partial<MutationUserLoginArgs>>;
+export type MutationResolvers<ContextType = IServerContext, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = ResolversObject<{
+  userLogin?: Resolver<ResolversTypes['UserLoginResponse'], ParentType, ContextType, RequireFields<MutationUserLoginArgs, 'email' | 'password'>>;
 }>;
 
-export type QueryResolvers<ContextType = ServerContext, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = ResolversObject<{
-  getUser?: Resolver<Maybe<Array<Maybe<ResolversTypes['User']>>>, ParentType, ContextType, Partial<QueryGetUserArgs>>;
+export type QueryResolvers<ContextType = IServerContext, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = ResolversObject<{
+  getUser?: Resolver<Maybe<Array<Maybe<ResolversTypes['User']>>>, ParentType, ContextType, RequireFields<QueryGetUserArgs, 'email'>>;
 }>;
 
-export type UserResolvers<ContextType = ServerContext, ParentType extends ResolversParentTypes['User'] = ResolversParentTypes['User']> = ResolversObject<{
-  email?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  password?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+export type UserResolvers<ContextType = IServerContext, ParentType extends ResolversParentTypes['User'] = ResolversParentTypes['User']> = ResolversObject<{
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  password?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
-export type UserLoginResponseResolvers<ContextType = ServerContext, ParentType extends ResolversParentTypes['UserLoginResponse'] = ResolversParentTypes['UserLoginResponse']> = ResolversObject<{
+export type UserLoginResponseResolvers<ContextType = IServerContext, ParentType extends ResolversParentTypes['UserLoginResponse'] = ResolversParentTypes['UserLoginResponse']> = ResolversObject<{
   jwt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  status?: Resolver<Maybe<ResolversTypes['StatusType']>, ParentType, ContextType>;
+  status?: Resolver<ResolversTypes['StatusType'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
-export type Resolvers<ContextType = ServerContext> = ResolversObject<{
+export type Resolvers<ContextType = IServerContext> = ResolversObject<{
   Mutation?: MutationResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
   User?: UserResolvers<ContextType>;

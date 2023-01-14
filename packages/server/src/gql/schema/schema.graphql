@@ -1,9 +1,9 @@
 type Mutation {
-  userLogin(email: String, password: String): UserLoginResponse
+  userLogin(email: String!, password: String!): UserLoginResponse!
 }
 
 type Query {
-  getUser(email: String): [User]
+  getUser(email: String!): [User]
 }
 
 enum StatusType {
@@ -12,13 +12,13 @@ enum StatusType {
 }
 
 type User {
-  email: String
-  id: String
-  name: String
-  password: String
+  email: String!
+  id: String!
+  name: String!
+  password: String!
 }
 
 type UserLoginResponse {
   jwt: String
-  status: StatusType
+  status: StatusType!
 }

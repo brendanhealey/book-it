@@ -3,13 +3,22 @@ import { getUserSql } from "gql/resolvers/getUserResolver";
 import * as fs from "fs";
 // @ts-ignore
 import { GraphQLError } from "graphql";
+import {
+  MutationUserLoginArgs,
+  StatusType,
+  UserLoginResponse,
+} from "gql/generated/resolverTypes";
+import constants from "constants/serverConstants";
 
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const privateKey = fs.readFileSync("./keys/private.key", "utf8");
 
-export const userLoginResolver = async (email, password) => {
+export const userLoginResolver = async ({
+  email,
+  password,
+}: MutationUserLoginArgs): Promise<UserLoginResponse> => {
   const users = await getQuery(getUserSql, [email]);
   if (!users || (users as any).length !== 1) {
     throw new GraphQLError("Multiple users exist with the same email", {
@@ -21,15 +30,15 @@ export const userLoginResolver = async (email, password) => {
 
   const isMatched = await bcrypt.compare(password, users[0].password);
   if (isMatched) {
-    let newJwt: String;
+    let newJwt: string;
     try {
       newJwt = jwt.sign({ userId: users[0].id }, privateKey, {
-        expiresIn: 120, //3600, // 1hr - msybe go for "90d"??
-        algorithm: "RS256",
+        expiresIn: constants.SECURITY_ACCESS_TOKEN_LIFETIME,
+        algorithm: constants.SECURITY_RSA_ALGORITHM,
       });
       return {
         __typename: "UserLoginResponse",
-        status: "success",
+        status: StatusType.Success,
         jwt: newJwt,
       };
     } catch (err) {
@@ -42,7 +51,7 @@ export const userLoginResolver = async (email, password) => {
   } else {
     return {
       __typename: "UserLoginResponse",
-      status: "failure",
+      status: StatusType.Failure,
     };
   }
 };

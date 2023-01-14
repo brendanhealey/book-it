@@ -2,14 +2,18 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
+      // without this all the import statements show as error in vscode
+      // we can't use "*" because it breaks absolute src imports.
       "@apollo/server": ["../node_modules/@apollo/server"],
-      "@as-integrations/aws-lambda": [
-        "../node_modules/@as-integrations/aws-lambda"
+      "@apollo/server/express4": ["../node_modules/@apollo/server/express4"],
+      "@apollo/server/plugin/drainHttpServer": [
+        "../node_modules/@apollo/server/plugin/drainHttpServer"
       ],
-      "@apollo/server/standalone": [
-        "../node_modules/@apollo/server/standalone"
-      ],
-      "mysql2": ["../node_modules/mysql2"]
+      "mysql2": ["../node_modules/mysql2"],
+      "express": ["../node_modules/express"],
+      "http": ["../node_modules/http"],
+      "cors": ["../node_modules/cors"],
+      "body-parser": ["../node_modules/body-parser"]
     }
   }
 }

@@ -2,7 +2,7 @@ overwrite: true
 schema: "http://localhost:4000"
 hooks: afterAllFileWrite
   - prettier --write
-documents: "../server/src/gql/schema/*/*.graphql"
+documents: "../server/src/gql/schema/client/*/*.graphql"
 generates:
   src/gql/generated/index.ts:
     plugins:
@@ -14,16 +14,6 @@ generates:
       withHooks: true
       strictScalars: true
       scalars:
-        # BigDecimal: "number"
-        # CountryCode: "string"
-        # LanguageCode: "string"
-        # LocalDate: "string | number | Date"
-        # LocalDateTime: "string | number | Date"
-        # Locale: "string"
-        # Long: "number"
-        # Object: "any"
-        # Url: "string"
-        # YearMonth: "string | Date"
 
   src/gql/generated/schema.json:
     plugins:
