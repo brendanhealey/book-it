@@ -1,10 +1,14 @@
-// @ts-nocheck
 import { ApolloServer } from "@apollo/server";
+// @ts-ignore
 import { expressMiddleware } from "@apollo/server/express4";
+// @ts-ignore
 import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
+// @ts-ignore
 import express from "express";
 import http from "http";
+// @ts-ignore
 import cors from "cors";
+// @ts-ignore
 import bodyParser from "body-parser";
 import { typeDefs, resolvers } from "./schema";
 

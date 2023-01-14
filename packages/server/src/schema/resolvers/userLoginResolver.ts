@@ -1,18 +1,25 @@
 import getQuery from "schema/resolvers/getQuery";
 import { getUserSql } from "schema/resolvers/getUserResolver";
 import * as fs from "fs";
+// @ts-ignore
+import { GraphQLError } from "graphql";
 
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const privateKey = fs.readFileSync("./keys/private.key", "utf8");
 
-export const userLoginResolver = async (_, { email, password }) => {
+export const userLoginResolver = async (email, password) => {
   const users = await getQuery(getUserSql, [email]);
-  // check user isn't empty - array length 1
-  console.log(users);
+  if (!users || (users as any).length !== 1) {
+    throw new GraphQLError("Multiple users exist with the same email", {
+      extensions: {
+        code: "INTERNAL_SERVER_ERROR",
+      },
+    });
+  }
+
   const isMatched = await bcrypt.compare(password, users[0].password);
-  console.log("match", isMatched);
   if (isMatched) {
     let newJwt: String;
     try {
@@ -20,17 +27,18 @@ export const userLoginResolver = async (_, { email, password }) => {
         expiresIn: 3600, // 1hr - msybe go for "90d"??
         algorithm: "RS256",
       });
+      return {
+        __typename: "UserLoginResponse",
+        status: "success",
+        jwt: newJwt,
+      };
     } catch (err) {
-      console.log(err);
-      console.log(
-        "signing the new jwt didn't work - login failed return a 500"
-      );
+      throw new GraphQLError("The server could not generate an access token", {
+        extensions: {
+          code: "INTERNAL_SERVER_ERROR",
+        },
+      });
     }
-    return {
-      __typename: "UserLoginResponse",
-      status: "success",
-      jwt: newJwt,
-    };
   } else {
     return {
       __typename: "UserLoginResponse",
