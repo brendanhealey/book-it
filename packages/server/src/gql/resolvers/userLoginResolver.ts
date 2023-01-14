@@ -1,11 +1,13 @@
-import getQuery from "gql/resolvers/getQuery";
+import { getQueryMany, getQueryOne } from "gql/resolvers/getQuery";
 import { getUserSql } from "gql/resolvers/getUserResolver";
+import { getUsersSql } from "gql/resolvers/getUsersResolver";
 import * as fs from "fs";
 // @ts-ignore
 import { GraphQLError } from "graphql";
 import {
   MutationUserLoginArgs,
   StatusType,
+  User,
   UserLoginResponse,
 } from "gql/generated/resolverTypes";
 import constants from "constants/serverConstants";
@@ -19,20 +21,32 @@ export const userLoginResolver = async ({
   email,
   password,
 }: MutationUserLoginArgs): Promise<UserLoginResponse> => {
-  const users = await getQuery(getUserSql, [email]);
-  if (!users || (users as any).length !== 1) {
-    throw new GraphQLError("Multiple users exist with the same email", {
+  const user = await getQueryOne<User>(getUserSql, [email]);
+  if (!user) {
+    throw new GraphQLError("The email could not be found", {
       extensions: {
         code: "INTERNAL_SERVER_ERROR",
       },
     });
   }
 
-  const isMatched = await bcrypt.compare(password, users[0].password);
+  // TEMP CODE
+  const users = await getQueryMany<User[]>(getUsersSql);
+  if (!user) {
+    throw new GraphQLError("The email could not be found", {
+      extensions: {
+        code: "INTERNAL_SERVER_ERROR",
+      },
+    });
+  }
+
+  console.log("************************", users);
+
+  const isMatched = await bcrypt.compare(password, user.password);
   if (isMatched) {
     let newJwt: string;
     try {
-      newJwt = jwt.sign({ userId: users[0].id }, privateKey, {
+      newJwt = jwt.sign({ userId: user.id }, privateKey, {
         expiresIn: constants.SECURITY_ACCESS_TOKEN_LIFETIME,
         algorithm: constants.SECURITY_RSA_ALGORITHM,
       });

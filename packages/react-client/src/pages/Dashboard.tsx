@@ -7,7 +7,7 @@ export const Dashboard = () => {
     (actions) => actions.securityStore
   );
   const [getUser, { data, loading }] = useGetUserLazyQuery({
-    fetchPolicy: "network-only",
+    fetchPolicy: "network-only", // for testing purposes bypass the cache
   }); // temp
   const clickHandler = async () => {
     const result = await getUser({

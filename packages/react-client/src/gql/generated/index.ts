@@ -28,7 +28,7 @@ export type MutationUserLoginArgs = {
 
 export type Query = {
   __typename?: 'Query';
-  getUser?: Maybe<Array<Maybe<User>>>;
+  getUser?: Maybe<User>;
 };
 
 
@@ -68,7 +68,7 @@ export type GetUserQueryVariables = Exact<{
 }>;
 
 
-export type GetUserQuery = { __typename?: 'Query', getUser?: Array<{ __typename?: 'User', id?: string | null, email?: string | null, password?: string | null, name?: string | null } | null> | null };
+export type GetUserQuery = { __typename?: 'Query', getUser?: { __typename?: 'User', id?: string | null, email?: string | null, password?: string | null, name?: string | null } | null };
 
 
 export const UserLoginDocument = gql`

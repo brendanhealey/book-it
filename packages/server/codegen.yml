@@ -2,12 +2,16 @@
 # to generate types based on our schema.
 schema: ["src/gql/schema/schema.graphql", "src/gql/schema/*/*.graphql"]
 generates:
+  ./src/graphql/generated/schema.graphql:
+    plugins:
+      - schema-ast
   ./src/gql/generated/resolverTypes.ts:
     plugins:
       - "typescript"
+      - "typescript-operations"
       - "typescript-resolvers"
+      - "src/typescript-typedefs.js"
     config:
       useIndexSignature: true
       contextType: "../../server#IServerContext"
-      mappers:
-        User: ./src/gql/generated/models#UserModel
+require: ["ts-node/register"]

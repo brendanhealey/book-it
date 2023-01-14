@@ -2029,6 +2029,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@graphql-codegen/typescript-operations@npm:^2.5.12":
+  version: 2.5.12
+  resolution: "@graphql-codegen/typescript-operations@npm:2.5.12"
+  dependencies:
+    "@graphql-codegen/plugin-helpers": ^3.1.2
+    "@graphql-codegen/typescript": ^2.8.7
+    "@graphql-codegen/visitor-plugin-common": 2.13.7
+    auto-bind: ~4.0.0
+    tslib: ~2.4.0
+  peerDependencies:
+    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: 9ce2281cb8b4adf8fbe8ac372277f5e9aef373c1e8e45fb064b8a2754417324f601399b12345d9352708eeb4fbeab004616c811bd016894271641d9da0606c62
+  languageName: node
+  linkType: hard
+
 "@graphql-codegen/typescript-resolvers@npm:^2.7.12":
   version: 2.7.12
   resolution: "@graphql-codegen/typescript-resolvers@npm:2.7.12"
@@ -2461,7 +2476,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/utils@npm:9.1.4, @graphql-tools/utils@npm:^9.0.0, @graphql-tools/utils@npm:^9.1.1":
+"@graphql-tools/utils@npm:9.1.4, @graphql-tools/utils@npm:^9.0.0, @graphql-tools/utils@npm:^9.1.1, @graphql-tools/utils@npm:^9.1.4":
   version: 9.1.4
   resolution: "@graphql-tools/utils@npm:9.1.4"
   dependencies:
@@ -7397,7 +7412,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql-tag@npm:^2.11.0":
+"graphql-tag@npm:^2.11.0, graphql-tag@npm:^2.12.6":
   version: 2.12.6
   resolution: "graphql-tag@npm:2.12.6"
   dependencies:
@@ -11151,7 +11166,9 @@ __metadata:
     "@as-integrations/aws-lambda": ^1.1.0
     "@graphql-codegen/cli": ^2.16.4
     "@graphql-codegen/typescript": ^2.8.7
+    "@graphql-codegen/typescript-operations": ^2.5.12
     "@graphql-codegen/typescript-resolvers": ^2.7.12
+    "@graphql-tools/utils": ^9.1.4
     "@serverless/typescript": ^3.0.0
     "@types/aws-lambda": ^8.10.71
     "@types/bcrypt": ^5.0.0
@@ -11165,6 +11182,7 @@ __metadata:
     eslint: ^8.30.0
     express: ^4.18.2
     graphql: ^16.6.0
+    graphql-tag: ^2.12.6
     jest: ^29.3.1
     json-schema-to-ts: ^1.5.0
     jsonwebtoken: ^9.0.0

@@ -1,5 +1,4 @@
 import { GraphQLResolveInfo } from 'graphql';
-import { UserModel } from './src/gql/generated/models';
 import { IServerContext } from '../../server';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
@@ -29,7 +28,8 @@ export type MutationUserLoginArgs = {
 
 export type Query = {
   __typename?: 'Query';
-  getUser?: Maybe<Array<Maybe<User>>>;
+  getUser?: Maybe<User>;
+  getUsers?: Maybe<Array<Maybe<User>>>;
 };
 
 
@@ -131,7 +131,7 @@ export type ResolversTypes = ResolversObject<{
   Query: ResolverTypeWrapper<{}>;
   StatusType: StatusType;
   String: ResolverTypeWrapper<Scalars['String']>;
-  User: ResolverTypeWrapper<UserModel>;
+  User: ResolverTypeWrapper<User>;
   UserLoginResponse: ResolverTypeWrapper<UserLoginResponse>;
 }>;
 
@@ -141,7 +141,7 @@ export type ResolversParentTypes = ResolversObject<{
   Mutation: {};
   Query: {};
   String: Scalars['String'];
-  User: UserModel;
+  User: User;
   UserLoginResponse: UserLoginResponse;
 }>;
 
@@ -150,7 +150,8 @@ export type MutationResolvers<ContextType = IServerContext, ParentType extends R
 }>;
 
 export type QueryResolvers<ContextType = IServerContext, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = ResolversObject<{
-  getUser?: Resolver<Maybe<Array<Maybe<ResolversTypes['User']>>>, ParentType, ContextType, RequireFields<QueryGetUserArgs, 'email'>>;
+  getUser?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType, RequireFields<QueryGetUserArgs, 'email'>>;
+  getUsers?: Resolver<Maybe<Array<Maybe<ResolversTypes['User']>>>, ParentType, ContextType>;
 }>;
 
 export type UserResolvers<ContextType = IServerContext, ParentType extends ResolversParentTypes['User'] = ResolversParentTypes['User']> = ResolversObject<{
@@ -174,3 +175,7 @@ export type Resolvers<ContextType = IServerContext> = ResolversObject<{
   UserLoginResponse?: UserLoginResponseResolvers<ContextType>;
 }>;
 
+
+
+  import { gql } from "graphql-tag"
+  export const typeDefs = gql`schema{query:Query mutation:Mutation}type Mutation{userLogin(email:String!password:String!):UserLoginResponse!}type Query{getUser(email:String!):User getUsers:[User]}enum StatusType{failure success}type User{email:String!id:String!name:String!password:String!}type UserLoginResponse{jwt:String status:StatusType!}`;

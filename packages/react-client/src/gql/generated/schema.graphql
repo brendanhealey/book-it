@@ -3,7 +3,7 @@ type Mutation {
 }
 
 type Query {
-  getUser(email: String): [User]
+  getUser(email: String): User
 }
 
 enum StatusType {

@@ -37,7 +37,7 @@ export const LoginPage = () => {
   };
 
   return (
-    <LoginComponent greeting="Welcome to Book-it!" actionCallback={login} />
+    <LoginComponent greeting="Welcome to Book it!" actionCallback={login} />
   );
 };
 
