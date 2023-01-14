@@ -8,8 +8,8 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import { typeDefs, resolvers } from "./schema";
 
-interface MyContext {
-  accessToken?: String;
+export interface ServerContext {
+  accessToken: String;
 }
 
 // work around the error:
@@ -24,7 +24,7 @@ interface MyContext {
 
   // Same ApolloServer initialization as before, plus the drain plugin
   // for our httpServer.
-  const server = new ApolloServer<MyContext>({
+  const server = new ApolloServer<ServerContext>({
     typeDefs,
     resolvers,
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
@@ -42,7 +42,7 @@ interface MyContext {
     // expressMiddleware accepts the same arguments:
     // an Apollo Server instance and optional configuration options
     expressMiddleware(server, {
-      context: async ({ req }) => ({ accessToken: req.headers.accessToken }),
+      context: async ({ req }) => ({ accessToken: req.headers.authorization }),
     })
   );
 
