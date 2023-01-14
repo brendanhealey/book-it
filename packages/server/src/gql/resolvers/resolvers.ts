@@ -1,6 +1,6 @@
-import { getUserResolver } from "schema/resolvers/getUserResolver";
-import { secured } from "schema/resolvers/secured";
-import { userLoginResolver } from "schema/resolvers/userLoginResolver";
+import { getUserResolver } from "gql/resolvers/getUserResolver";
+import { secured } from "gql/resolvers/secured";
+import { userLoginResolver } from "gql/resolvers/userLoginResolver";
 import { ServerContext } from "server";
 
 export const resolvers = {

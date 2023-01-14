@@ -1,6 +1,7 @@
 # This configuration file tells GraphQL Code Generator how
 # to generate types based on our schema.
-schema: "../react-client/src/gql/generated/schema.graphql"
+schema: ["src/gql/schema/schema.graphql", "src/gql/schema/*/*.graphql"]
+# schema: "../react-client/src/gql/generated/schema.graphql"
 generates:
   # Specify where our generated types should live.
   ./src/gql/generated/resolverTypes.ts:

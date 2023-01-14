@@ -1,5 +1,5 @@
-import getQuery from "schema/resolvers/getQuery";
-import { getUserSql } from "schema/resolvers/getUserResolver";
+import getQuery from "gql/resolvers/getQuery";
+import { getUserSql } from "gql/resolvers/getUserResolver";
 import * as fs from "fs";
 // @ts-ignore
 import { GraphQLError } from "graphql";

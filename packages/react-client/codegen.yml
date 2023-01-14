@@ -2,7 +2,7 @@ overwrite: true
 schema: "http://localhost:4000"
 hooks: afterAllFileWrite
   - prettier --write
-documents: "src/**/*.graphql"
+documents: "../server/src/gql/schema/*/*.graphql"
 generates:
   src/gql/generated/index.ts:
     plugins:

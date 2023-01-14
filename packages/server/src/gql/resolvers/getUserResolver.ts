@@ -1,4 +1,4 @@
-import getQuery from "schema/resolvers/getQuery";
+import getQuery from "gql/resolvers/getQuery";
 
 export const getUserSql = "SELECT * FROM `users` WHERE email = ?";
 

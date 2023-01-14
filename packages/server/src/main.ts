@@ -1,6 +1,6 @@
 import { ApolloServer } from "@apollo/server";
 import { startServerAndCreateLambdaHandler } from "@as-integrations/aws-lambda";
-import { typeDefs } from "schema";
+import { typeDefs } from "gql/schema";
 import mysql2 from "mysql2";
 
 const connection = mysql2.createConnection({

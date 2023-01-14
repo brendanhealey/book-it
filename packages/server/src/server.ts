@@ -10,7 +10,7 @@ import http from "http";
 import cors from "cors";
 // @ts-ignore
 import bodyParser from "body-parser";
-import { typeDefs, resolvers } from "./schema";
+import { typeDefs, resolvers } from "./gql/schema";
 
 export interface ServerContext {
   accessToken: String;
