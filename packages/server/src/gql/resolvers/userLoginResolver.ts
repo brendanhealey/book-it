@@ -1,6 +1,5 @@
 import { getQueryMany, getQueryOne } from "gql/resolvers/getQuery";
 import { getUserSql } from "gql/resolvers/getUserResolver";
-import { getUsersSql } from "gql/resolvers/getUsersResolver";
 import * as fs from "fs";
 // @ts-ignore
 import { GraphQLError } from "graphql";
@@ -29,18 +28,6 @@ export const userLoginResolver = async ({
       },
     });
   }
-
-  // TEMP CODE
-  const users = await getQueryMany<User[]>(getUsersSql);
-  if (!user) {
-    throw new GraphQLError("The email could not be found", {
-      extensions: {
-        code: "INTERNAL_SERVER_ERROR",
-      },
-    });
-  }
-
-  console.log("************************", users);
 
   const isMatched = await bcrypt.compare(password, user.password);
   if (isMatched) {
