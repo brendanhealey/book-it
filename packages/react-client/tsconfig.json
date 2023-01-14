@@ -5,7 +5,7 @@
     "jsx": "react-jsx",
     "baseUrl": "src"
   },
-  "include": ["src", "../component-lib/src", "vite-env.d.ts"],
+  "include": ["src/**/*", "../component-lib/src", "vite-env.d.ts"],
   "exclude": ["node_modules", "dist", "../component-lib/src/stories/**/*"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

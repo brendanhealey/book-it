@@ -25,8 +25,4 @@
       "server": ["../../server/src"]
     }
   }
-  // "references": [
-  //   { "path": "./packages/component-lib" },
-  //   { "path": "./packages/server" }
-  // ]
 }
