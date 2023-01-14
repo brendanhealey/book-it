@@ -1,8 +1,8 @@
 import { Action, action } from "easy-peasy";
 
 export interface ISecurityStoreModelType {
-  accessToken: string | undefined;
-  setAccessToken: Action<ISecurityStoreModelType, string | undefined>;
+  accessToken: string | undefined | null;
+  setAccessToken: Action<ISecurityStoreModelType, string | undefined | null>;
   isLoggedIn: boolean;
   setIsLoggedIn: Action<ISecurityStoreModelType, boolean>;
 }

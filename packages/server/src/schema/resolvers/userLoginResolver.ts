@@ -24,7 +24,7 @@ export const userLoginResolver = async (email, password) => {
     let newJwt: String;
     try {
       newJwt = jwt.sign({ userId: users[0].id }, privateKey, {
-        expiresIn: 3600, // 1hr - msybe go for "90d"??
+        expiresIn: 120, //3600, // 1hr - msybe go for "90d"??
         algorithm: "RS256",
       });
       return {

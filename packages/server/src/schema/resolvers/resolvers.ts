@@ -7,6 +7,7 @@ export const resolvers = {
   Query: {
     getUser: async (_, args, context: ServerContext) =>
       secured(getUserResolver, context, args),
+    // getUserResolver(args),
   },
   Mutation: {
     userLogin: async (_, { email, password }) =>

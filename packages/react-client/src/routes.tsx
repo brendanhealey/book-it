@@ -9,6 +9,7 @@ const isLoggedIn = true; // to be moved to store
 export const router = createBrowserRouter([
   // PUT UNSECURED PAGES HERE
   { path: "/", element: <LoginPage /> },
+  { path: "/test", element: <Dashboard /> },
   {
     element: <SecuredRoute />,
     children: [

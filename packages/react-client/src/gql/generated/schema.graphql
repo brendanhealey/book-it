@@ -19,6 +19,6 @@ type User {
 }
 
 type UserLoginResponse {
-  jwt: String!
+  jwt: String
   status: StatusType
 }

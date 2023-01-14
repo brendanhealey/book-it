@@ -51,7 +51,7 @@ export type User = {
 
 export type UserLoginResponse = {
   __typename?: 'UserLoginResponse';
-  jwt: Scalars['String'];
+  jwt?: Maybe<Scalars['String']>;
   status?: Maybe<StatusType>;
 };
 
@@ -61,7 +61,7 @@ export type UserLoginMutationVariables = Exact<{
 }>;
 
 
-export type UserLoginMutation = { __typename?: 'Mutation', userLogin?: { __typename?: 'UserLoginResponse', status?: StatusType | null, jwt: string } | null };
+export type UserLoginMutation = { __typename?: 'Mutation', userLogin?: { __typename?: 'UserLoginResponse', status?: StatusType | null, jwt?: string | null } | null };
 
 export type GetUserQueryVariables = Exact<{
   email: Scalars['String'];

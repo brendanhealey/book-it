@@ -20,13 +20,20 @@ export const LoginPage = () => {
         },
       });
       console.log("response", response);
+      if (response.data?.userLogin?.status === "success") {
+        setIsLoggedIn(true);
+        setAccessToken(response.data?.userLogin?.jwt);
+        navigate("/dashboard");
+      } else {
+        setIsLoggedIn(false);
+        setAccessToken(undefined);
+        toast.error("Authentication failed");
+      }
     } catch (err) {
+      setIsLoggedIn(false);
+      setAccessToken(undefined);
       toast.error("Authentication failed");
     }
-
-    setIsLoggedIn(true);
-    setAccessToken("fred");
-    navigate("/dashboard");
   };
 
   return (

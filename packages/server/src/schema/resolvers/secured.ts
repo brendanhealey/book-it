@@ -17,7 +17,6 @@ const throwNotAuthError = () => {
 };
 
 export const secured = async (resolver, { accessToken }, args) => {
-  console.log("accessToken", accessToken);
   if (!accessToken || accessToken.length === 0) {
     throwNotAuthError();
   }
