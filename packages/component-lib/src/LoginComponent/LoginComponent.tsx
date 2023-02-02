@@ -48,13 +48,22 @@ export const LoginComponent = ({ greeting = 'Welcome!', actionCallback }: LoginC
         <Typography level="body2">Sign in to continue.</Typography>
       </div>
       <form onSubmit={handleSubmit}>
-        <TextField label="Email" name="email" onChange={handleEmailChange} placeholder="your.name@email.com" type="email" value={email} />
         <TextField
+          type="email"
+          label="Email"
+          name="email"
+          autoComplete="username"
+          onChange={handleEmailChange}
+          placeholder="your.name@email.com"
+          value={email}
+        />
+        <TextField
+          type="password"
           label="Password"
           name="password"
+          autoComplete="current-password"
           onChange={handlePasswordChange}
           placeholder="password"
-          type="password"
           value={password}
         />
         <Button type="submit" sx={{ mt: 1 }}>
