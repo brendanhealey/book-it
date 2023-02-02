@@ -16,7 +16,14 @@ export const LoginComponent = ({ greeting = 'Welcome!', actionCallback }: LoginC
 
   const handleEmailChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => setEmail(event.target.value), []);
   const handlePasswordChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => setPassword(event.target.value), []);
-  const handleClick = useCallback(() => actionCallback(email, password), [actionCallback, email, password]);
+
+  const handleSubmit = useCallback(
+    (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      actionCallback(email, password);
+    },
+    [actionCallback, email, password]
+  );
 
   return (
     <Sheet
@@ -40,11 +47,20 @@ export const LoginComponent = ({ greeting = 'Welcome!', actionCallback }: LoginC
         </Typography>
         <Typography level="body2">Sign in to continue.</Typography>
       </div>
-      <TextField label="Email" name="email" onChange={handleEmailChange} placeholder="your.name@email.com" type="email" value={email} />
-      <TextField label="Password" name="password" onChange={handlePasswordChange} placeholder="password" type="password" value={password} />
-      <Button onClick={handleClick} sx={{ mt: 1 }}>
-        Login
-      </Button>
+      <form onSubmit={handleSubmit}>
+        <TextField label="Email" name="email" onChange={handleEmailChange} placeholder="your.name@email.com" type="email" value={email} />
+        <TextField
+          label="Password"
+          name="password"
+          onChange={handlePasswordChange}
+          placeholder="password"
+          type="password"
+          value={password}
+        />
+        <Button type="submit" sx={{ mt: 1 }}>
+          Login
+        </Button>
+      </form>
       <Typography endDecorator={<Link href="/sign-up">Sign up</Link>} fontSize="sm" sx={{ alignSelf: 'center' }}>
         Don't have an account?
       </Typography>

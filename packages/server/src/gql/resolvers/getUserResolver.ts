@@ -1,4 +1,4 @@
-import { QueryGetUserArgs, User } from "gql/generated/resolverTypes";
+import { QueryGetUserArgs, User } from "gql/generated/typedefs";
 import { getQueryOne } from "gql/resolvers/getQuery";
 
 export const getUserSql = "SELECT * FROM `users` WHERE email = ?";

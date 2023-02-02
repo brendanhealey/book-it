@@ -15,7 +15,7 @@ import http from "http";
 import cors from "cors";
 import bodyParser from "body-parser";
 import { resolvers } from "./gql/schema";
-import { typeDefs } from "./gql/generated/resolverTypes";
+import { typeDefs } from "./gql/generated/typedefs";
 
 export interface IServerContext {
   accessToken: String;

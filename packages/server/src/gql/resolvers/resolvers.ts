@@ -1,4 +1,4 @@
-import { Resolvers } from "gql/generated/resolverTypes";
+import { Resolvers } from "gql/generated/typedefs";
 import { getUserResolver } from "gql/resolvers/getUserResolver";
 import { getUsersResolver } from "gql/resolvers/getUsersResolver";
 import { userLoginResolver } from "gql/resolvers/userLoginResolver";

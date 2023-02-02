@@ -5,12 +5,12 @@ generates:
   ./src/graphql/generated/schema.graphql:
     plugins:
       - schema-ast
-  ./src/gql/generated/resolverTypes.ts:
+  ./src/gql/generated/typedefs.ts:
     plugins:
       - "typescript"
       - "typescript-operations"
       - "typescript-resolvers"
-      - "src/typescript-typedefs.js"
+      - "src/graphql/createTypedefsFromSchema.js"
     config:
       useIndexSignature: true
       contextType: "../../server#IServerContext"

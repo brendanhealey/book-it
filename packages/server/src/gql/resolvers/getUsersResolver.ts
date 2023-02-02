@@ -1,4 +1,4 @@
-import { User } from "gql/generated/resolverTypes";
+import { User } from "gql/generated/typedefs";
 import { getQueryMany } from "gql/resolvers/getQuery";
 
 export const getUsersSql = "SELECT * FROM `users`";

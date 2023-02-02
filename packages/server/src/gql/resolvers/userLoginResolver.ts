@@ -8,7 +8,7 @@ import {
   StatusType,
   User,
   UserLoginResponse,
-} from "gql/generated/resolverTypes";
+} from "gql/generated/typedefs";
 import constants from "constants/serverConstants";
 
 const bcrypt = require("bcrypt");
